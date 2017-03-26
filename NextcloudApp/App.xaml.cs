@@ -22,6 +22,7 @@ using Prism.Windows.Mvvm;
 using Microsoft.QueryStringDotNET;
 using Windows.UI.Notifications;
 using System.Diagnostics;
+using NextcloudTasks;
 
 namespace NextcloudApp
 {
@@ -148,7 +149,7 @@ namespace NextcloudApp
             Container.RegisterInstance<IResourceLoader>(new ResourceLoaderAdapter(new ResourceLoader()));
 
             var task = base.OnInitializeAsync(args);
-
+            RegisterBackgroundTask();
             DeviceGestureService.GoBackRequested += DeviceGestureServiceOnGoBackRequested;
 
             // Just count total app starts
@@ -171,6 +172,11 @@ namespace NextcloudApp
             MigrationService.Instance.StartMigration();
 
             return task;
+        }
+
+        private async void RegisterBackgroundTask()
+        {
+            await BackgroundTaskManager.RegisterTasks();
         }
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
