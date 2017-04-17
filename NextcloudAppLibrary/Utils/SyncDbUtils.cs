@@ -9,9 +9,8 @@
     using System.Linq;
     using Windows.Storage;
     using System;
-    using Windows.ApplicationModel.Resources;
 
-    internal static class SyncDbUtils
+    public static class SyncDbUtils
     {
         private static string dbPath = string.Empty;
         private static Object fsiLock = new Object();
@@ -122,7 +121,7 @@
             }
         }
 
-        internal static void UnlockFolderSyncInfo(FolderSyncInfo folderSyncInfo)
+        public static void UnlockFolderSyncInfo(FolderSyncInfo folderSyncInfo)
         {
             lock(fsiLock)
             {
@@ -145,7 +144,7 @@
             }
         }
 
-        internal static bool LockFolderSyncInfo(FolderSyncInfo folderSyncInfo)
+        public static bool LockFolderSyncInfo(FolderSyncInfo folderSyncInfo)
         {
             lock (fsiLock)
             {
@@ -167,7 +166,7 @@
             }
         }
 
-        internal static List<FolderSyncInfo> GetActiveSyncInfos()
+        public static List<FolderSyncInfo> GetActiveSyncInfos()
         {
             using (var db = DbConnection)
             {

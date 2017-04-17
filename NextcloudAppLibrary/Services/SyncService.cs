@@ -13,6 +13,7 @@ using Windows.Web.Http;
 using System.Diagnostics;
 using DecaTec.WebDav;
 using Windows.Storage;
+using NextcloudAppLib.Services;
 
 namespace NextcloudApp.Services
 {
@@ -119,14 +120,7 @@ namespace NextcloudApp.Services
                 IReadOnlyList<StorageFolder> localFolders = await folder.GetFoldersAsync();
 
                 List<ResourceInfo> list = null;
-                try
-                {
-                    list = await client.List(info.Path);
-                }
-                catch (ResponseError e)
-                {
-                    ResponseErrorHandlerService.HandleException(e);
-                }
+                list = await client.List(info.Path);
                 //List<Task> syncTasks = new List<Task>();
                 List<IStorageItem> synced = new List<IStorageItem>();
                 if (list != null && list.Count > 0)
@@ -529,22 +523,15 @@ namespace NextcloudApp.Services
             bool result = false;
             var _cts = new CancellationTokenSource();
             CachedFileManager.DeferUpdates(localFile);
-            try
-            {
-                var properties = await localFile.GetBasicPropertiesAsync();
-                long BytesTotal = (long)properties.Size;
+            var properties = await localFile.GetBasicPropertiesAsync();
+            long BytesTotal = (long)properties.Size;
 
-                using (var stream = await localFile.OpenAsync(FileAccessMode.Read))
-                {
-                    var targetStream = stream.AsStreamForRead();
-
-                    IProgress<WebDavProgress> progress = new Progress<WebDavProgress>(ProgressHandler);
-                    await client.Upload(path, targetStream, localFile.ContentType, progress, _cts.Token);
-                }
-            }
-            catch (ResponseError e2)
+            using (var stream = await localFile.OpenAsync(FileAccessMode.Read))
             {
-                ResponseErrorHandlerService.HandleException(e2);
+                var targetStream = stream.AsStreamForRead();
+
+                IProgress<WebDavProgress> progress = new Progress<WebDavProgress>(ProgressHandler);
+                await client.Upload(path, targetStream, localFile.ContentType, progress, _cts.Token);
             }
 
             // Let Windows know that we're finished changing the file so

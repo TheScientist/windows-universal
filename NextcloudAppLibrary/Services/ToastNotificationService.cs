@@ -11,7 +11,7 @@ using NextcloudApp.Models;
 
 namespace NextcloudApp.Services
 {
-    class ToastNotificationService
+    public class ToastNotificationService
     {
         public const string SYNCACTION = "syncAction";
         public const string SYNCONFLICTACTION = "syncConflict";
@@ -70,7 +70,7 @@ namespace NextcloudApp.Services
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
-        internal static void ShowSyncSuspendedNotification(FolderSyncInfo fsi)
+        public static void ShowSyncSuspendedNotification(FolderSyncInfo fsi)
         {
             if(fsi == null)
             {

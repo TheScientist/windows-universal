@@ -1,5 +1,4 @@
-﻿using Prism.Windows.AppModel;
-using System;
+﻿using System;
 using Windows.ApplicationModel.Resources;
 
 namespace NextcloudApp.Models

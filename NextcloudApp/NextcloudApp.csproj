@@ -129,33 +129,22 @@
     <Compile Include="Converter\IsGlyphToVisibilityConverter.cs" />
     <Compile Include="Converter\IsSortingToSelectionModeConverter.cs" />
     <Compile Include="Converter\EmptyPathToSlashConverter.cs" />
-    <Compile Include="Models\ConflictSolution.cs" />
-    <Compile Include="Models\FolderSyncInfo.cs" />
     <Compile Include="Models\MoveFileOrFolderPageParameters.cs" />
     <Compile Include="Models\PageParameters.cs" />
     <Compile Include="Models\PinStartPageParameters.cs" />
-    <Compile Include="Models\RoamingSettings.cs" />
+    <Compile Include="Models\PreviewImageDownloadModeItem.cs" />
     <Compile Include="Models\SingleFileDownloadPageParameters.cs" />
     <Compile Include="Models\FileUploadPageParameters.cs" />
     <Compile Include="Models\FileInfoPageParameters.cs" />
-    <Compile Include="Models\PreviewImageDownloadModeItem.cs" />
-    <Compile Include="Models\SyncConflict.cs" />
-    <Compile Include="Models\SyncInfoDetail.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\DirectoryService.cs" />
     <Compile Include="Services\ExceptionReportService.cs" />
     <Compile Include="Services\MigrationService.cs" />
     <Compile Include="Services\ResponseErrorHandlerService.cs" />
-    <Compile Include="Services\SyncService.cs" />
-    <Compile Include="Services\ToastNotificationService.cs" />
     <Compile Include="Services\UpdateNotificationService.cs" />
     <Compile Include="Services\VerificationService.cs" />
-    <Compile Include="Utils\DefaultSettingValueAttribute.cs" />
-    <Compile Include="Utils\ObservableSettings.cs" />
-    <Compile Include="Utils\DebugTraceListener.cs" />
     <Compile Include="Services\TileService.cs" />
-    <Compile Include="Utils\PreviewImageDownloadMode.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="Utils\SizeSorter.cs" />
     <Compile Include="Converter\NullToVisibilityConverter.cs" />
@@ -166,12 +155,10 @@
     <Compile Include="Converter\ContentTypeToIconConverter.cs" />
     <Compile Include="Converter\DateTimeToStringConverter.cs" />
     <Compile Include="Models\FileOrFolder.cs" />
-    <Compile Include="Models\LocalSettings.cs" />
     <Compile Include="Models\PathInfo.cs" />
     <Compile Include="PageTokens.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\LocalizationService.cs" />
-    <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\StatusBarService.cs" />
     <Compile Include="Utils\Grouping.cs" />
     <Compile Include="Utils\IRevertState.cs" />
@@ -179,7 +166,6 @@
     <Compile Include="Utils\NameSorter.cs" />
     <Compile Include="Utils\ObservableGroupingCollection.cs" />
     <Compile Include="Utils\SortMode.cs" />
-    <Compile Include="Utils\SyncDbUtils.cs" />
     <Compile Include="Utils\StringHelper.cs" />
     <Compile Include="ViewModels\FileUploadPageViewModel.cs" />
     <Compile Include="ViewModels\MoveFileOrFolderPageViewModel.cs" />
@@ -308,6 +294,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NextcloudAppLibrary\NextcloudAppLibrary.csproj">
+      <Project>{8e41e317-50c9-4ec2-8e43-e0d0a07109ca}</Project>
+      <Name>NextcloudAppLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NextcloudClientPortable\NextcloudClientPortable.csproj">
       <Project>{07797e3b-7077-43ef-8197-f8723e2b0cc4}</Project>
       <Name>NextcloudClientPortable</Name>
