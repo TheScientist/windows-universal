@@ -12,7 +12,7 @@ using Windows.Storage.AccessCache;
 
 namespace NextcloudTasks.Tasks
 {
-    public sealed class SynchronizationTask
+    public sealed class SynchronizationTask : IBackgroundTask
     {
         volatile bool _cancelRequested = false;
 

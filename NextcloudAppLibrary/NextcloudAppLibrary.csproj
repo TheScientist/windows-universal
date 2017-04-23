@@ -112,6 +112,7 @@
     <Compile Include="Models\LocalSettings.cs" />
     <Compile Include="Models\RoamingSettings.cs" />
     <Compile Include="Models\SyncConflict.cs" />
+    <Compile Include="Models\SyncHistory.cs" />
     <Compile Include="Models\SyncInfoDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClientService.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Services\ToastNotificationService.cs" />
     <Compile Include="Utils\DebugTraceListener.cs" />
     <Compile Include="Utils\DefaultSettingValueAttribute.cs" />
+    <Compile Include="Utils\GroupMode.cs" />
     <Compile Include="Utils\ObservableSettings.cs" />
     <Compile Include="Utils\PreviewImageDownloadMode.cs" />
     <Compile Include="Utils\SyncDbUtils.cs" />

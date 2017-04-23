@@ -22,6 +22,7 @@ using Prism.Windows.Mvvm;
 using Microsoft.QueryStringDotNET;
 using Windows.UI.Notifications;
 using System.Diagnostics;
+using NextcloudTasks;
 
 namespace NextcloudApp
 {
@@ -188,6 +189,7 @@ namespace NextcloudApp
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
         {
+            var bgTask = BackgroundTaskManager.RegisterTasks();
             if (
                 string.IsNullOrEmpty(SettingsService.Instance.LocalSettings.ServerAddress) ||
                 string.IsNullOrEmpty(SettingsService.Instance.LocalSettings.Username)
@@ -262,7 +264,6 @@ namespace NextcloudApp
 
             // Ensure the current window is active
             Window.Current.Activate();
-            
             return Task.FromResult(true);
         }
 
