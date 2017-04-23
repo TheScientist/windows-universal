@@ -98,18 +98,29 @@
     </Content>
     <None Include="NextcloudApp_StoreKey.pfx" />
     <None Include="project.json" />
+    <None Include="Strings\.tx\config" />
+    <PRIResource Include="Strings\cs-CZ\Resources.resw" />
+    <PRIResource Include="Strings\ca\Resources.resw" />
+    <PRIResource Include="Strings\bg-BG\Resources.resw" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
+    <PRIResource Include="Strings\tr\Resources.resw" />
+    <PRIResource Include="Strings\pt-BR\Resources.resw" />
+    <PRIResource Include="Strings\pl\Resources.resw" />
+    <PRIResource Include="Strings\nb-NO\Resources.resw" />
+    <PRIResource Include="Strings\lv\Resources.resw" />
+    <PRIResource Include="Strings\is\Resources.resw" />
+    <PRIResource Include="Strings\hu-HU\Resources.resw" />
+    <PRIResource Include="Strings\fi-FI\Resources.resw" />
+    <PRIResource Include="Strings\es-MX\Resources.resw" />
     <PRIResource Include="Strings\sv\Resources.resw" />
     <PRIResource Include="Strings\sq\Resources.resw" />
-    <PRIResource Include="Strings\pt_BR\Resources.resw" />
     <PRIResource Include="Strings\nl\Resources.resw" />
     <PRIResource Include="Strings\it\Resources.resw" />
-    <PRIResource Include="Strings\hu_HU\Resources.resw" />
     <PRIResource Include="Strings\fr\Resources.resw" />
     <PRIResource Include="Strings\es\Resources.resw" />
-    <PRIResource Include="Strings\en\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
+    <PRIResource Include="Strings\en\Resources.resw" />
     <PRIResource Include="Strings\de\Resources.resw" />
+    <PRIResource Include="Strings\de-DE\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
@@ -122,20 +133,24 @@
     <Compile Include="Actions\OpenMenuFlyoutAction.cs" />
     <Compile Include="Behaviors\ScrollListBoxToEndBehavior.cs" />
     <Compile Include="Constants\ResourceConstants.cs" />
+    <Compile Include="Converter\ConflictTypeToForegroundConverter.cs" />
     <Compile Include="Converter\ConflictTypeToStringConverter.cs" />
     <Compile Include="Converter\IsFolderSyncedConverter.cs" />
     <Compile Include="Converter\FirstCharFromStringConverter.cs" />
     <Compile Include="Converter\AddSlashToPathConverter.cs" />
     <Compile Include="Converter\IsGlyphToVisibilityConverter.cs" />
-    <Compile Include="Converter\IsSortingToSelectionModeConverter.cs" />
+    <Compile Include="Converter\IsSelectingToVisibilityConverter.cs" />
     <Compile Include="Converter\EmptyPathToSlashConverter.cs" />
+    <Compile Include="Converter\SyncInfoStoragePathConverter.cs" />
     <Compile Include="Models\MoveFileOrFolderPageParameters.cs" />
     <Compile Include="Models\PageParameters.cs" />
     <Compile Include="Models\PinStartPageParameters.cs" />
     <Compile Include="Models\PreviewImageDownloadModeItem.cs" />
-    <Compile Include="Models\SingleFileDownloadPageParameters.cs" />
+    <Compile Include="Models\FileDownloadPageParameters.cs" />
     <Compile Include="Models\FileUploadPageParameters.cs" />
     <Compile Include="Models\FileInfoPageParameters.cs" />
+    <Compile Include="Models\SyncHistory.cs" />    <Compile Include="Models\SyncHistory.cs" />
+    <Compile Include="Models\SyncInfoDetail.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\DirectoryService.cs" />
@@ -156,7 +171,7 @@
     <Compile Include="Converter\DateTimeToStringConverter.cs" />
     <Compile Include="Models\FileOrFolder.cs" />
     <Compile Include="Models\PathInfo.cs" />
-    <Compile Include="PageTokens.cs" />
+    <Compile Include="PageToken.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="Services\StatusBarService.cs" />
@@ -165,15 +180,16 @@
     <Compile Include="Utils\DateSorter.cs" />
     <Compile Include="Utils\NameSorter.cs" />
     <Compile Include="Utils\ObservableGroupingCollection.cs" />
-    <Compile Include="Utils\SortMode.cs" />
+    <Compile Include="Utils\GroupMode.cs" />
+    <Compile Include="Utils\SortSequence.cs" />
     <Compile Include="Utils\StringHelper.cs" />
     <Compile Include="ViewModels\FileUploadPageViewModel.cs" />
     <Compile Include="ViewModels\MoveFileOrFolderPageViewModel.cs" />
-    <Compile Include="ViewModels\SingleFileDownloadPageViewModel.cs" />
+    <Compile Include="ViewModels\FileDownloadPageViewModel.cs" />
     <Compile Include="ViewModels\FileInfoPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\DirectoryListPageViewModel.cs" />
-    <Compile Include="ViewModels\SyncConflictPageViewModel.cs" />
+    <Compile Include="ViewModels\SyncStatusPageViewModel.cs" />
     <Compile Include="ViewModels\VerificationPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\FileUploadPage.xaml.cs">
@@ -182,8 +198,8 @@
     <Compile Include="Views\MoveFileOrFolder.xaml.cs">
       <DependentUpon>MoveFileOrFolder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SingleFileDownloadPage.xaml.cs">
-      <DependentUpon>SingleFileDownloadPage.xaml</DependentUpon>
+    <Compile Include="Views\FileDownloadPage.xaml.cs">
+      <DependentUpon>FileDownloadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FileInfoPage.xaml.cs">
       <DependentUpon>FileInfoPage.xaml</DependentUpon>
@@ -204,8 +220,8 @@
     <Compile Include="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SyncConflictPage.xaml.cs">
-      <DependentUpon>SyncConflictPage.xaml</DependentUpon>
+    <Compile Include="Views\SyncStatusPage.xaml.cs">
+      <DependentUpon>SyncStatusPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VerificationPage.xaml.cs">
       <DependentUpon>VerificationPage.xaml</DependentUpon>
@@ -260,7 +276,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SingleFileDownloadPage.xaml">
+    <Page Include="Views\FileDownloadPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -284,7 +300,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SyncConflictPage.xaml">
+    <Page Include="Views\SyncStatusPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

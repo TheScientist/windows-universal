@@ -15,6 +15,7 @@ namespace NextcloudApp.Models
         {
             var _resourceLoader = new ResourceLoader();
             string conflictMessage;
+
             switch (type)
             {
                 case ConflictType.NONE: return "";
@@ -34,7 +35,7 @@ namespace NextcloudApp.Models
                     conflictMessage = "Unknown";
                     break;
             }
-            return _resourceLoader.GetString("SyncConflictPrefix") + conflictMessage;
+            return $"{_resourceLoader.GetString("SyncConflictPrefix")} {conflictMessage}";
         }
     }
 }

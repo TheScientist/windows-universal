@@ -9,7 +9,6 @@ using NextcloudApp.Models;
 using Windows.Storage.FileProperties;
 using NextcloudApp.Utils;
 using System.Threading;
-using Windows.Web.Http;
 using System.Diagnostics;
 using DecaTec.WebDav;
 using Windows.Storage;
@@ -39,30 +38,39 @@ namespace NextcloudApp.Services
             {
                 return false;
             }
+
             try
             {
                 client = await ClientService.GetClient();
+
                 if (client == null)
                 {
                     // ERROR
                     throw new Exception("Error creating webdav client");
                 }
+
                 int changedCount = 0;
                 List<SyncInfoDetail> oldList = SyncDbUtils.GetAllSyncInfoDetails(folderSyncInfo);
                 Debug.WriteLine("Sid List before Sync: ");
+
                 foreach (SyncInfoDetail detail in oldList)
                 {
                     Debug.WriteLine("Detail: " + detail.ToString());
                 }
-                SyncInfoDetail sid = SyncDbUtils.GetSyncInfoDetail(resourceInfo, folderSyncInfo);
+
+                var sid = SyncDbUtils.GetSyncInfoDetail(resourceInfo, folderSyncInfo);
                 var errorCount = 0;
+
                 try
                 {
                     if (sid == null)
                     {
-                        sid = new SyncInfoDetail(folderSyncInfo);
-                        sid.Path = resourceInfo.Path;
-                        sid.FilePath = baseFolder.Path;
+                        sid = new SyncInfoDetail(folderSyncInfo)
+                        {
+                            Path = resourceInfo.Path,
+                            FilePath = baseFolder.Path,
+                        };
+
                         SyncDbUtils.SaveSyncInfoDetail(sid);
                     }
                     else
@@ -70,7 +78,9 @@ namespace NextcloudApp.Services
                         sidList.Remove(sid);
                         sid.Error = null;
                     }
+
                     changedCount = await SyncFolder(resourceInfo, baseFolder);
+
                     foreach (SyncInfoDetail detail in oldList)
                     {
                         if (!sidList.Contains(detail) && detail.FilePath.StartsWith(baseFolder.Path))
@@ -87,21 +97,24 @@ namespace NextcloudApp.Services
                     sid.Error = e.Message;
                     errorCount++;
                 }
+
                 SyncDbUtils.SaveSyncInfoDetail(sid);
                 List<SyncInfoDetail> newSidList = SyncDbUtils.GetAllSyncInfoDetails(folderSyncInfo);
                 Debug.WriteLine("Sid List after Sync: ");
+
                 foreach (SyncInfoDetail detail in newSidList)
                 {
                     Debug.WriteLine("Detail: " + detail.ToString());
                 }
+
                 ToastNotificationService.ShowSyncFinishedNotification(folderSyncInfo.Path, changedCount, errorCount);
                 return errorCount == 0;
-            } finally
+            }
+            finally
             {
                 SyncDbUtils.UnlockFolderSyncInfo(folderSyncInfo);
             }
         }
-
 
         /// <summary>
         /// Folder Synchronization
@@ -153,9 +166,13 @@ namespace NextcloudApp.Services
                                     // Create sid and local folder
                                     Debug.WriteLine("Sync folder (create locally) " + subInfo.Path);
                                     subFolder = await folder.CreateFolderAsync(subInfo.Name);
-                                    SyncInfoDetail syncInfoDetail = new SyncInfoDetail(folderSyncInfo);
-                                    syncInfoDetail.Path = subInfo.Path;
-                                    syncInfoDetail.FilePath = subFolder.Path;
+
+                                    SyncInfoDetail syncInfoDetail = new SyncInfoDetail(folderSyncInfo)
+                                    {
+                                        Path = subInfo.Path,
+                                        FilePath = subFolder.Path
+                                    };
+
                                     SyncDbUtils.SaveSyncInfoDetail(syncInfoDetail);
                                     changesCount = changesCount + await SyncFolder(subInfo, subFolder);
                                     // syncTasks.Add(SyncFolder(subInfo, subFolder));
@@ -168,9 +185,13 @@ namespace NextcloudApp.Services
                                 {
                                     // Both new
                                     Debug.WriteLine("Sync folder (create both) " + subInfo.Path);
-                                    SyncInfoDetail syncInfoDetail = new SyncInfoDetail(folderSyncInfo);
-                                    syncInfoDetail.Path = subInfo.Path;
-                                    syncInfoDetail.FilePath = subFolder.Path;
+
+                                    SyncInfoDetail syncInfoDetail = new SyncInfoDetail(folderSyncInfo)
+                                    {
+                                        Path = subInfo.Path,
+                                        FilePath = subFolder.Path
+                                    };
+
                                     SyncDbUtils.SaveSyncInfoDetail(syncInfoDetail);
                                 }
                                 synced.Add(subFolder);
@@ -217,12 +238,17 @@ namespace NextcloudApp.Services
                             // Create sid and remotefolder
                             string newPath = info.Path + localFolder.Name;
                             Debug.WriteLine("Sync folder (create remotely) " + newPath);
+
                             if (await client.CreateDirectory(newPath))
                             {
                                 ResourceInfo subInfo = await client.GetResourceInfo(info.Path, localFolder.Name);
-                                SyncInfoDetail syncInfoDetail = new SyncInfoDetail(folderSyncInfo);
-                                syncInfoDetail.Path = subInfo.Path;
-                                syncInfoDetail.FilePath = localFolder.Path;
+
+                                SyncInfoDetail syncInfoDetail = new SyncInfoDetail(folderSyncInfo)
+                                {
+                                    Path = subInfo.Path,
+                                    FilePath = localFolder.Path
+                                };
+
                                 SyncDbUtils.SaveSyncInfoDetail(syncInfoDetail);
                                 changesCount = changesCount + await SyncFolder(subInfo, localFolder);
                                 //syncTasks.Add(SyncFolder(subInfo, localFolder));                                
@@ -287,7 +313,7 @@ namespace NextcloudApp.Services
                         Debug.WriteLine("Sync file (Upload)" + newPath);
                         sid.DateModified = currentModified;
                         sid.FilePath = file.Path;
-                        if (await uploadFile(file, newPath))
+                        if (await UploadFile(file, newPath))
                         {
                             ResourceInfo newInfo = await client.GetResourceInfo(parent.Path, file.Name);
                             sid.Path = newInfo.Path + "/" + newInfo.Name;
@@ -303,7 +329,7 @@ namespace NextcloudApp.Services
                         // Create sid and download file
                         StorageFile localFile = await parentFolder.CreateFileAsync(info.Name);
                         Debug.WriteLine("Sync file (Download)" + localFile.Path);
-                        if (await this.downloadFile(localFile, info.Path + "/" + info.Name))
+                        if (await this.DownloadFile(localFile, info.Path + "/" + info.Name))
                         {
                             BasicProperties basicProperties = await localFile.GetBasicPropertiesAsync();
                             currentModified = basicProperties.DateModified;
@@ -339,7 +365,7 @@ namespace NextcloudApp.Services
                                     Debug.WriteLine("Sync file (Upload)" + newPath);
                                     sid.DateModified = currentModified;
                                     sid.FilePath = file.Path;
-                                    if (await uploadFile(file, newPath))
+                                    if (await UploadFile(file, newPath))
                                     {
                                         ResourceInfo newInfo = await client.GetResourceInfo(parent.Path, file.Name);
                                         sid.Path = newInfo.Path + "/" + newInfo.Name;
@@ -393,7 +419,7 @@ namespace NextcloudApp.Services
                                     // Update local file
                                     StorageFile localFile = await parentFolder.CreateFileAsync(info.Name);
                                     Debug.WriteLine("Sync file (Download)" + localFile.Path);
-                                    if(await this.downloadFile(localFile, info.Path + "/" + info.Name)) { 
+                                    if(await this.DownloadFile(localFile, info.Path + "/" + info.Name)) { 
                                         BasicProperties basicProperties = await localFile.GetBasicPropertiesAsync();
                                         currentModified = basicProperties.DateModified;
                                         sid.ETag = info.ETag;
@@ -421,7 +447,7 @@ namespace NextcloudApp.Services
                             {
                                 // Update local file
                                 Debug.WriteLine("Sync file (update locally) " + info.Path + "/" + info.Name);
-                                if(await this.downloadFile(file, info.Path + "/" + info.Name)) { 
+                                if(await this.DownloadFile(file, info.Path + "/" + info.Name)) { 
                                     sid.ETag = info.ETag;
                                     sid.DateModified = currentModified;
                                     changed = true;
@@ -436,7 +462,7 @@ namespace NextcloudApp.Services
                             // update file on nextcloud
                             Debug.WriteLine("Sync file (update remotely) " + info.Path + "/" + info.Name);
                             
-                            if (await uploadFile(file, info.Path + "/" + info.Name))
+                            if (await UploadFile(file, info.Path + "/" + info.Name))
                             {
                                 ResourceInfo newInfo = await client.GetResourceInfo(info.Path, info.Name);
                                 sid.ETag = newInfo.ETag;
@@ -455,7 +481,7 @@ namespace NextcloudApp.Services
                                     // update file on nextcloud
                                     Debug.WriteLine("Sync file (update remotely) " + info.Path + "/" + info.Name);
                                    
-                                    if (await uploadFile(file, info.Path + "/" + info.Name))
+                                    if (await UploadFile(file, info.Path + "/" + info.Name))
                                     {
                                         ResourceInfo newInfo = await client.GetResourceInfo(info.Path, info.Name);
                                         sid.ETag = newInfo.ETag;
@@ -471,7 +497,7 @@ namespace NextcloudApp.Services
                                 case ConflictSolution.PREFER_REMOTE:
                                     // Update local file
                                     Debug.WriteLine("Sync file (update locally) " + info.Path + "/" + info.Name);
-                                    if (await this.downloadFile(file, info.Path + "/" + info.Name))
+                                    if (await this.DownloadFile(file, info.Path + "/" + info.Name))
                                     {
                                         sid.ETag = info.ETag;
                                         sid.DateModified = currentModified;
@@ -518,7 +544,7 @@ namespace NextcloudApp.Services
             // progress
         }
 
-        private async Task<bool> uploadFile(StorageFile localFile, string path)
+        private async Task<bool> UploadFile(StorageFile localFile, string path)
         {
             bool result = false;
             var _cts = new CancellationTokenSource();
@@ -541,7 +567,7 @@ namespace NextcloudApp.Services
             return result;
         }
 
-        private async Task<bool> downloadFile(StorageFile localFile, string path)
+        private async Task<bool> DownloadFile(StorageFile localFile, string path)
         {
             bool result = false;
             CachedFileManager.DeferUpdates(localFile);
