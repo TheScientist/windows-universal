@@ -572,7 +572,7 @@ namespace NextcloudApp.Services
                 var targetStream = stream.AsStreamForRead();
 
                 IProgress<WebDavProgress> progress = new Progress<WebDavProgress>(ProgressHandler);
-                await client.Upload(path, targetStream, localFile.ContentType, progress, _cts.Token);
+                result = await client.Upload(path, targetStream, localFile.ContentType, progress, _cts.Token);
             }
 
             // Let Windows know that we're finished changing the file so
