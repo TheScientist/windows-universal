@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Controls;
 using NextcloudApp.Constants;
 using Windows.UI.Xaml;
 using Prism.Unity.Windows;
+using Windows.UI.Popups;
+using System.Threading.Tasks;
 
 namespace NextcloudApp.ViewModels
 {
@@ -25,8 +27,11 @@ namespace NextcloudApp.ViewModels
         private readonly IResourceLoader _resourceLoader;
         private string _serverVersion;
         private bool _ignoreServerCertificateErrors;
+        private bool _expertMode;
 
         public ICommand ResetCommand { get; private set; }
+        public ICommand ShowHelpExpertModeCommand { get; private set; }
+        public ICommand ShowHelpIgnoreInvalidSslCertificatesCommand { get; private set; }
 
         public SettingsPageViewModel(INavigationService navigationService, IResourceLoader resourceLoader, DialogService dialogService)
         {
@@ -40,11 +45,13 @@ namespace NextcloudApp.ViewModels
                 Name = resourceLoader.GetString("Always"),
                 Value = PreviewImageDownloadMode.Always
             });
+
             PreviewImageDownloadModes.Add(new PreviewImageDownloadModeItem
             {
                 Name = resourceLoader.GetString("WiFiOnly"),
                 Value = PreviewImageDownloadMode.WiFiOnly
             });
+
             PreviewImageDownloadModes.Add(new PreviewImageDownloadModeItem
             {
                 Name = resourceLoader.GetString("Never"),
@@ -68,8 +75,11 @@ namespace NextcloudApp.ViewModels
 
             UseWindowsHello = Settings.UseWindowsHello;
             IgnoreServerCertificateErrors = Settings.IgnoreServerCertificateErrors;
+            ExpertMode = Settings.ExpertMode;
 
             ResetCommand = new DelegateCommand(Reset);
+            ShowHelpExpertModeCommand = new DelegateCommand(ShowHelpExpertMode);
+            ShowHelpIgnoreInvalidSslCertificatesCommand = new DelegateCommand(ShowHelpInvalidSslCertificates);
 
             GetServerVersion();
         }
@@ -77,6 +87,7 @@ namespace NextcloudApp.ViewModels
         private async void GetServerVersion()
         {
             var status = await NextcloudClient.NextcloudClient.GetServerStatus(Settings.ServerAddress, SettingsService.Instance.LocalSettings.IgnoreServerCertificateErrors);
+
             if (!string.IsNullOrEmpty(status.VersionString))
             {
                 ServerVersion = string.Format(_resourceLoader.GetString("ServerVersion"), status.VersionString);
@@ -95,8 +106,7 @@ namespace NextcloudApp.ViewModels
             private set { SetProperty(ref _settings, value); }
         }
 
-        public List<PreviewImageDownloadModeItem> PreviewImageDownloadModes { get; } =
-            new List<PreviewImageDownloadModeItem>();
+        public List<PreviewImageDownloadModeItem> PreviewImageDownloadModes { get; } = new List<PreviewImageDownloadModeItem>();
 
 
         public int PreviewImageDownloadModesSelectedIndex
@@ -108,6 +118,7 @@ namespace NextcloudApp.ViewModels
                 {
                     return;
                 }
+
                 switch (value)
                 {
                     case 0:
@@ -152,8 +163,21 @@ namespace NextcloudApp.ViewModels
                 },
                 PrimaryButtonText = _resourceLoader.GetString("OK")
             };
+
             await _dialogService.ShowAsync(dialog);
             PrismUnityApplication.Current.Exit();
+        }
+
+        public bool ExpertMode
+        {
+            get { return _expertMode; }
+            set
+            {
+                if (!SetProperty(ref _expertMode, value))
+                    return;
+
+                Settings.ExpertMode = value;
+            }
         }
 
         public bool UseWindowsHello
@@ -197,13 +221,30 @@ namespace NextcloudApp.ViewModels
         public string AppVersion
             =>
                 string.Format(_resourceLoader.GetString("ClientVersion"),
-                    $"{Package.Current.Id.Version.Major}.{Package.Current.Id.Version.Minor}.{Package.Current.Id.Version.Build}")
-            ;
+                    $"{Package.Current.Id.Version.Major}.{Package.Current.Id.Version.Minor}.{Package.Current.Id.Version.Build}");
 
         private void Reset()
         {
             SettingsService.Instance.Reset();
             _navigationService.Navigate(PageToken.Login.ToString(), null);
+        }
+
+        private async void ShowHelpExpertMode()
+        {
+            var text = _resourceLoader.GetString(ResourceConstants.HelpText_ExpertMode);
+            await ShowHelp(text);
+        }
+
+        private async void ShowHelpInvalidSslCertificates()
+        {
+            var text = _resourceLoader.GetString(ResourceConstants.HelpText_HelpTextIgnoreInvalidSelfSignedSslCertificates);
+            await ShowHelp(text);
+        }
+
+        private async Task ShowHelp(string message)
+        {
+            var messageDialog = new MessageDialog(message, string.Empty);
+            await _dialogService.ShowAsync(messageDialog);
         }
     }
 }

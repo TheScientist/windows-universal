@@ -168,6 +168,12 @@
   <data name="AppBarSort_Flyout_BySizeDESC" xml:space="preserve">
     <value>Taille (ordre décroissant)</value>
   </data>
+  <data name="AppBarSort_Flyout_ByTypeASC" xml:space="preserve">
+    <value>Type (ascending)</value>
+  </data>
+  <data name="AppBarSort_Flyout_ByTypeDESC" xml:space="preserve">
+    <value>Type (descending)</value>
+  </data>
   <data name="ApplicationError" xml:space="preserve">
     <value>Erreur d&apos;application</value>
   </data>
@@ -420,7 +426,7 @@ Souhaitez-vous informer les développeurs de l&apos;application et envoyer le ra
 • Utiliser Windows Hello pour vous authentifier au démarrage de l&apos;application
 • Autoriser les certificats SSL auto-signés
 • Afficher la taille du fichier dans la liste
-• Gérer l&apos;activation du fichier
+• Partager des fichiers avec l&apos;application (partager la cible)
 • Utiliser le PasswordVault pour stocker les informations d&apos;identification de l&apos;utilisateur
 • Améliorations de la sécurité &amp; corrections de bugs
 • Nouvelle bibliothèque WebDAV plus stable</value>
@@ -435,13 +441,31 @@ Souhaitez-vous informer les développeurs de l&apos;application et envoyer le ra
     <value>Connecter</value>
   </data>
   <data name="IgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
-    <value>Ignorer les certificats SSL auto-signés non valides. Cela permet d&apos;utiliser des autorités de certificat SSL invalides ou incorrectes. Soyez prudent, vous ne serez plus protégé des attaques Man-in-the-middle (mitm) !</value>
+    <value>Ignore invalid self-signed SSL certificates</value>
+  </data>
+  <data name="ExpertMode.Header" xml:space="preserve">
+    <value>Expert mode</value>
+  </data>
+  <data name="SynchronizationStatus.Header" xml:space="preserve">
+    <value>Statut de synchronisation</value>
+  </data>
+  <data name="SynchronizationHistory.Header" xml:space="preserve">
+    <value>Journal</value>
+  </data>
+  <data name="SynchronizationConflicts.Header" xml:space="preserve">
+    <value>Conflits</value>
+  </data>
+  <data name="SynchronizationErrors.Header" xml:space="preserve">
+    <value>Erreurs</value>
   </data>
   <data name="Synchronize.Text" xml:space="preserve">
     <value>Synchroniser</value>
   </data>
   <data name="SyncFixConflictPreferLocal.Label" xml:space="preserve">
     <value>Préférer le fichier local</value>
+  </data>
+  <data name="SyncClearHistory.Label" xml:space="preserve">
+    <value>Effacer le journal de synchronisation</value>
   </data>
   <data name="SyncFixConflictPreferRemote.Label" xml:space="preserve">
     <value>Préférer le fichier distant</value>
@@ -509,7 +533,37 @@ Veuillez réessayer plus tard.</value>
   <data name="SyncSuspendedTitle" xml:space="preserve">
     <value>Synchronisation suspendue</value>
   </data>
+  <data name="SynchronizationPage" xml:space="preserve">
+    <value>Statut de synchronisation</value>
+  </data>
+  <data name="SyncPathLocal.Text" xml:space="preserve">
+    <value>Chemin local :</value>
+  </data>
+  <data name="SyncPathRemote.Text" xml:space="preserve">
+    <value>Chemin Nextcloud :</value>
+  </data>
   <data name="ShareTargetListView_Header" xml:space="preserve">
     <value>Choisissez le dossier où vous souhaitez téléverser les fichiers</value>
+  </data>
+  <data name="SynchronizationFolders.Header" xml:space="preserve">
+    <value>Dossiers</value>
+  </data>
+  <data name="DirectoryListStatusBarText" xml:space="preserve">
+    <value>Items: {0} (folders: {1} files: {2})</value>
+  </data>
+  <data name="HelpTextExpertMode" xml:space="preserve">
+    <value>When the expert mode is enabled, the app provides some additional features/information, which may not be interesting for all users.</value>
+  </data>
+  <data name="HelpTextIgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
+    <value>Ignore invalid self-signed SSL certificates. This allows invalid or incorrect SSL certificate authorities to be used. Be careful, you will not be protected from Man-in-the-middle (mitm) attacks anymore!</value>
+  </data>
+  <data name="AppBarSyncThisFolder.Label" xml:space="preserve">
+    <value>Synchronize this folder</value>
+  </data>
+  <data name="AppBarUnSyncThisFolder.Label" xml:space="preserve">
+    <value>Stop synchronizing this folder</value>
+  </data>
+  <data name="StopSynchronize.Text" xml:space="preserve">
+    <value>Stop synchronizing</value>
   </data>
 </root>

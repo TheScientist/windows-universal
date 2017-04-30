@@ -26,6 +26,7 @@
             <RowDefinition Height="48" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <ListBox 
@@ -293,7 +294,7 @@
                                         <MenuFlyoutItem 
                                             Tag="UnSyncFolder"
                                             x:Uid="StopSynchronize"
-                                            Text="Stop Synchronizing"
+                                            Text="Stop synchronizing"
                                             Command="{Binding DataContext.StopSynchronizeFolderCommand, ElementName=Page}"
                                             CommandParameter="{Binding}"
                                             Style="{StaticResource MenuFlyoutIconItemStyle}"
@@ -341,13 +342,29 @@
                 </GridView>
             </SemanticZoom.ZoomedOutView>
         </SemanticZoom>
-        <CommandBar Grid.Row="2" VerticalAlignment="Bottom">
+
+        <StackPanel Orientation="Horizontal" Height="25" Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlBackgroundBaseMediumBrush}">
+            <TextBlock Margin="25,0,0,0" Text="{Binding StatusBarText, Mode=OneWay}" />
+        </StackPanel>
+        
+        <CommandBar Grid.Row="3" VerticalAlignment="Bottom">
             <CommandBar.SecondaryCommands>
                 <AppBarButton 
                 Icon="Sync" 
                 Label="Refresh" 
                 x:Uid="AppBarRefresh"
                 Command="{Binding RefreshCommand}"/>
+                <AppBarButton 
+                Icon="SyncFolder" 
+                Label="Synchronize this folder" 
+                x:Uid="AppBarSyncThisFolder"
+                Command="{Binding SynchronizeThisFolderCommand}"/>
+                <AppBarButton 
+                Icon="UnsyncFolder" 
+                Label="Stop synchronizing this folder" 
+                x:Uid="AppBarUnSyncThisFolder"
+                Command="{Binding StopSynchronizeThisFolderCommand}"
+                IsEnabled="{Binding SelectedFileOrFolder, Converter={StaticResource IsThisFolderSyncedToIsEnabledConverter}}"/>
             </CommandBar.SecondaryCommands>
             <AppBarButton 
                 x:Uid="AppBarSelect" 
@@ -387,6 +404,15 @@
                             x:Uid="AppBarSort_Flyout_BySizeDESC" 
                             Text="Größe (Größte nach oben)"
                             Command="{Binding GroupBySizeDescendingCommand}"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem 
+                            x:Uid="AppBarSort_Flyout_ByTypeASC" 
+                            Text="Typ (aufsteigend)"
+                            Command="{Binding GroupByTypeAscendingCommand}"/>
+                        <MenuFlyoutItem 
+                            x:Uid="AppBarSort_Flyout_ByTypeDESC" 
+                            Text="Typ (absteigend)"
+                            Command="{Binding GroupByTypeDescendingCommand}"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>

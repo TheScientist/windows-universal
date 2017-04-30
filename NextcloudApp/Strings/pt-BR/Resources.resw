@@ -168,8 +168,14 @@
   <data name="AppBarSort_Flyout_BySizeDESC" xml:space="preserve">
     <value>Tamanho (maior no topo)</value>
   </data>
+  <data name="AppBarSort_Flyout_ByTypeASC" xml:space="preserve">
+    <value>Tipo (crescente)</value>
+  </data>
+  <data name="AppBarSort_Flyout_ByTypeDESC" xml:space="preserve">
+    <value>Tipo (decrescente)</value>
+  </data>
   <data name="ApplicationError" xml:space="preserve">
-    <value>Erro de aplicação</value>
+    <value>Erro de aplicativo</value>
   </data>
   <data name="ApplicationError_Description" xml:space="preserve">
     <value>O aplicativo encontrou um problema. Pedimos desculpas pela inconveniência. Se você estava no meio de algo, a informação na qual estava trabalhando foi perdida.
@@ -412,17 +418,17 @@ Gostaria de informar os desenvolvedores de aplicativos e enviar o relatório de 
   <data name="Changes_version_1-1-0" xml:space="preserve">
     <value>• Mover arquivos e pastas
 • Renomear arquivos e pastas
-• Sincronização manual de pastas
-• Baixar diretórios como arquivo zip
+• Sincronizar pastas manualmente
+• Baixar diretórios como arquivos zip 
 • Selecionar múltiplos arquivos e pastas
 • Destacar arquivos e pastas na tela inicial
-• Usar autenticação Windows Hello ao iniciar aplicativo
+• Usar autenticação Hello Windows ao iniciar o aplicativo
 • Permitir certificados SSL auto assinados
-• Mostrar tamanho da pasta na lista
-• Manipular ativação de arquivo
-• Usar PasswordVault para armazenar credenciais de usuário
-• Melhorias de segurança &amp; correção de bugs
-• Biblioteca WebDAV nova e mais estável</value>
+• Mostrar tamanho de pastas na lista
+• Compartilhar arquivos com o aplicativo (compartilhar alvo)
+• Usar o PasswordVault para armazenar as credenciais do usuário
+• Melhoria na segurança &amp; correção de erros
+• Nova biblioteca WebDAV mais estável</value>
   </data>
   <data name="AppBarPinToStart.Label" xml:space="preserve">
     <value>Destacar no niciar</value>
@@ -434,13 +440,31 @@ Gostaria de informar os desenvolvedores de aplicativos e enviar o relatório de 
     <value>Conectar</value>
   </data>
   <data name="IgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
-    <value>Ignorar certificados SSL auto-assinados inválidos. Isso permite que autoridades de certificados SSL inválidas ou incorretas sejam usadas. Tenha cuidado, você não estará mais protegido dos ataques Man-in-the-middle (mitm)!</value>
+    <value>Ignore invalid self-signed SSL certificates</value>
+  </data>
+  <data name="ExpertMode.Header" xml:space="preserve">
+    <value>Modo avançado</value>
+  </data>
+  <data name="SynchronizationStatus.Header" xml:space="preserve">
+    <value>Status da sincronização</value>
+  </data>
+  <data name="SynchronizationHistory.Header" xml:space="preserve">
+    <value>Histórico</value>
+  </data>
+  <data name="SynchronizationConflicts.Header" xml:space="preserve">
+    <value>Conflitos</value>
+  </data>
+  <data name="SynchronizationErrors.Header" xml:space="preserve">
+    <value>Erros</value>
   </data>
   <data name="Synchronize.Text" xml:space="preserve">
     <value>Sincronizar</value>
   </data>
   <data name="SyncFixConflictPreferLocal.Label" xml:space="preserve">
     <value>Preferir arquivo local</value>
+  </data>
+  <data name="SyncClearHistory.Label" xml:space="preserve">
+    <value>Apagar histórico de sincronização</value>
   </data>
   <data name="SyncFixConflictPreferRemote.Label" xml:space="preserve">
     <value>Preferir arquivo remoto</value>
@@ -460,7 +484,7 @@ Tenha cuidado, você não estará protegido dos ataques Man-in-the-middle (mitm)
     <value>Dica</value>
   </data>
   <data name="SyncErrorHint.Text" xml:space="preserve">
-    <value>Lista de erros ocorridos durante a sincronização. Deve ser problemas temporários (por ex. um arquivo sendo aberto por outra aplicação) e isso deve ser resolvido após a próxima sincronização.</value>
+    <value>Lista de erros ocorridos durante a sincronização. Deve ser problemas temporários (por ex. um arquivo sendo aberto por outro aplicativo) e isso deve ser resolvido após a próxima sincronização.</value>
   </data>
   <data name="SyncFoldersNotEmptyWarning" xml:space="preserve">
     <value>Cuidado com os conflitos!</value>
@@ -508,7 +532,37 @@ Por favor tente mais tarde.</value>
   <data name="SyncSuspendedTitle" xml:space="preserve">
     <value>A sincronização foi suspensa</value>
   </data>
+  <data name="SynchronizationPage" xml:space="preserve">
+    <value>Status da sincronização</value>
+  </data>
+  <data name="SyncPathLocal.Text" xml:space="preserve">
+    <value>Caminho local:</value>
+  </data>
+  <data name="SyncPathRemote.Text" xml:space="preserve">
+    <value>Caminho Nexcloud:</value>
+  </data>
   <data name="ShareTargetListView_Header" xml:space="preserve">
     <value>Escolha a pasta para onde você quer enviar arquivos</value>
+  </data>
+  <data name="SynchronizationFolders.Header" xml:space="preserve">
+    <value>Pastas</value>
+  </data>
+  <data name="DirectoryListStatusBarText" xml:space="preserve">
+    <value>Itens: {0} (pastas: {1} arquivos: {2})</value>
+  </data>
+  <data name="HelpTextExpertMode" xml:space="preserve">
+    <value>When the expert mode is enabled, the app provides some additional features/information, which may not be interesting for all users.</value>
+  </data>
+  <data name="HelpTextIgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
+    <value>Ignore invalid self-signed SSL certificates. This allows invalid or incorrect SSL certificate authorities to be used. Be careful, you will not be protected from Man-in-the-middle (mitm) attacks anymore!</value>
+  </data>
+  <data name="AppBarSyncThisFolder.Label" xml:space="preserve">
+    <value>Synchronize this folder</value>
+  </data>
+  <data name="AppBarUnSyncThisFolder.Label" xml:space="preserve">
+    <value>Stop synchronizing this folder</value>
+  </data>
+  <data name="StopSynchronize.Text" xml:space="preserve">
+    <value>Stop synchronizing</value>
   </data>
 </root>

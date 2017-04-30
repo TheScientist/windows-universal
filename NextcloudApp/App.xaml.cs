@@ -228,7 +228,7 @@ namespace NextcloudApp
                                 pageParameters = new PinStartPageParameters()
                                 {
                                     ResourceInfo = tmpResourceInfo,
-                                    PageTarget = tmpResourceInfo.IsDirectory() ? PageToken.DirectoryList.ToString() : PageToken.FileInfo.ToString()
+                                    PageTarget = tmpResourceInfo.IsDirectory ? PageToken.DirectoryList : PageToken.FileInfo
                                 };
 
                             }
@@ -243,7 +243,7 @@ namespace NextcloudApp
                         else
                         {
                             NavigationService.Navigate(
-                                pageParameters!=null ? pageParameters.PageTarget : PageToken.DirectoryList.ToString(), 
+                                pageParameters != null ? pageParameters.PageTarget.ToString() : PageToken.DirectoryList.ToString(), 
                                 pageParameters?.Serialize());
                         }
                     }

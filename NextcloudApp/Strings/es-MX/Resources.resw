@@ -168,6 +168,12 @@
   <data name="AppBarSort_Flyout_BySizeDESC" xml:space="preserve">
     <value>Tamaño (más grande al principio)</value>
   </data>
+  <data name="AppBarSort_Flyout_ByTypeASC" xml:space="preserve">
+    <value>Type (ascending)</value>
+  </data>
+  <data name="AppBarSort_Flyout_ByTypeDESC" xml:space="preserve">
+    <value>Type (descending)</value>
+  </data>
   <data name="ApplicationError" xml:space="preserve">
     <value>Error de la aplicación</value>
   </data>
@@ -414,16 +420,16 @@
     <value>• Mover archivos y carpetas
 • Renombrar archivos y carpetas
 • Sincronización manual de carpetas
-• Descargar directorios com un archivo zip
+• Descargar directorios como un arhivo .zip
 • Seleccionar multiples archivos y carpetas
-• Anclar archivos y carpetas a las pantalla de inicio
+• Anclar archivos y carpetas a la pantalla de inicio
 • Usar Windows Hello para autenticar al iniciar la aplicación
 • Permitir certificados SSL auto firmados
-• Mostrar el tamaño de la carpeta en la lista
-• Manejar la activiación de archivos
+• Mostrar el tamañano de carpetas en la lista
+• Compartir archivos con la aplicación (comparitr el blanco)
 • Usar la Bóveda de Contraseñas para almacenar credenciales de usuario
-• Mejoras de seguridad &amp; corrección de fallas
-• Nueva y más estable librería WebDAV</value>
+• Mejoras de seguridad y corrección de fallas
+• Una nueva y más estáble librería WebDAV</value>
   </data>
   <data name="AppBarPinToStart.Label" xml:space="preserve">
     <value>Anclar al inicio</value>
@@ -435,13 +441,31 @@
     <value>Conectar</value>
   </data>
   <data name="IgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
-    <value>Ignorar certificados SSL auto-firmados. Esto permite el uso de la autoridad certificadora SSL inválida o incorrecta. Tenga cuidado, no estará más protegido contra ataques de Hombre-en-medio (mitm)</value>
+    <value>Ignore invalid self-signed SSL certificates</value>
+  </data>
+  <data name="ExpertMode.Header" xml:space="preserve">
+    <value>Expert mode</value>
+  </data>
+  <data name="SynchronizationStatus.Header" xml:space="preserve">
+    <value>Estatus de sincronización</value>
+  </data>
+  <data name="SynchronizationHistory.Header" xml:space="preserve">
+    <value>Histórico</value>
+  </data>
+  <data name="SynchronizationConflicts.Header" xml:space="preserve">
+    <value>Conflictos</value>
+  </data>
+  <data name="SynchronizationErrors.Header" xml:space="preserve">
+    <value>Errores</value>
   </data>
   <data name="Synchronize.Text" xml:space="preserve">
     <value>Sincronizar</value>
   </data>
   <data name="SyncFixConflictPreferLocal.Label" xml:space="preserve">
     <value>Preferir archivo local </value>
+  </data>
+  <data name="SyncClearHistory.Label" xml:space="preserve">
+    <value>Borrar histórico de sincronización</value>
   </data>
   <data name="SyncFixConflictPreferRemote.Label" xml:space="preserve">
     <value>Preferir archivo remoto</value>
@@ -459,7 +483,7 @@
   </data>
   <data name="Hint" xml:space="preserve">
     <value>Pista</value>
-  </data> 
+  </data>
   <data name="SyncErrorHint.Text" xml:space="preserve">
     <value>Lista de los errores que se presentaron durante la sincronización. Estos deberían ser temas temporales (ejem. un archivo que esté abierto por otra aplicación) y no deberían presentarse durante la siguiente sincronización. </value>
   </data>
@@ -508,7 +532,37 @@
   <data name="SyncSuspendedTitle" xml:space="preserve">
     <value>La sincronización se ha suspendido</value>
   </data>
+  <data name="SynchronizationPage" xml:space="preserve">
+    <value>Estatus de Sincronización</value>
+  </data>
+  <data name="SyncPathLocal.Text" xml:space="preserve">
+    <value>Ruta Local:</value>
+  </data>
+  <data name="SyncPathRemote.Text" xml:space="preserve">
+    <value>Ruta de Nextcloud:</value>
+  </data>
   <data name="ShareTargetListView_Header" xml:space="preserve">
     <value>Favor de elegir la carpeta donde prefiera cargar los archivos</value>
+  </data>
+  <data name="SynchronizationFolders.Header" xml:space="preserve">
+    <value>Carpetas</value>
+  </data>
+  <data name="DirectoryListStatusBarText" xml:space="preserve">
+    <value>Items: {0} (folders: {1} files: {2})</value>
+  </data>
+  <data name="HelpTextExpertMode" xml:space="preserve">
+    <value>When the expert mode is enabled, the app provides some additional features/information, which may not be interesting for all users.</value>
+  </data>
+  <data name="HelpTextIgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
+    <value>Ignore invalid self-signed SSL certificates. This allows invalid or incorrect SSL certificate authorities to be used. Be careful, you will not be protected from Man-in-the-middle (mitm) attacks anymore!</value>
+  </data>
+  <data name="AppBarSyncThisFolder.Label" xml:space="preserve">
+    <value>Synchronize this folder</value>
+  </data>
+  <data name="AppBarUnSyncThisFolder.Label" xml:space="preserve">
+    <value>Stop synchronizing this folder</value>
+  </data>
+  <data name="StopSynchronize.Text" xml:space="preserve">
+    <value>Stop synchronizing</value>
   </data>
 </root>

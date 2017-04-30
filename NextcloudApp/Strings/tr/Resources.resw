@@ -168,6 +168,12 @@
   <data name="AppBarSort_Flyout_BySizeDESC" xml:space="preserve">
     <value>Boyut (Büyükten Küçüğe)</value>
   </data>
+  <data name="AppBarSort_Flyout_ByTypeASC" xml:space="preserve">
+    <value>Type (ascending)</value>
+  </data>
+  <data name="AppBarSort_Flyout_ByTypeDESC" xml:space="preserve">
+    <value>Type (descending)</value>
+  </data>
   <data name="ApplicationError" xml:space="preserve">
     <value>Uygulama hatası</value>
   </data>
@@ -420,7 +426,7 @@ Bu sorun hakkında hazırlanmış raporu uygulama geliştiricilerine iletmek ist
 • Uygulama başlangıcında kimlik doğrulaması için Windows Hello kullanımı
 • Kendinden imzalı SSL sertifikalarına izin verme
 • Listede klasör boyutunu görüntüleme
-• Dosya etkinleştirmeyi işleme
+• Uygulama üzerinden dosya paylaşımı (hedef paylaşımı)
 • Kullanıcı bilgilerini saklamak için PasswordVault kullanımı
 • Güvenlik geliştirmeleri ve hata ayıklamaları
 • Yeni ve daha kararlı WebDAV kitaplığı</value>
@@ -435,13 +441,31 @@ Bu sorun hakkında hazırlanmış raporu uygulama geliştiricilerine iletmek ist
     <value>Bağlan</value>
   </data>
   <data name="IgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
-    <value>Kendinden imzalı SSL sertifikaları görmezden gelinir. Bu seçenek geçersiz ya da hatalı SSL sertifika yayıncılarının kullanılmasını sağlar. Man-in-the-middle (mitm) saldırılarına karşı korumasız kalacağınız için dikkatli olun!</value>
+    <value>Ignore invalid self-signed SSL certificates</value>
+  </data>
+  <data name="ExpertMode.Header" xml:space="preserve">
+    <value>Expert mode</value>
+  </data>
+  <data name="SynchronizationStatus.Header" xml:space="preserve">
+    <value>Eşitleme durumu</value>
+  </data>
+  <data name="SynchronizationHistory.Header" xml:space="preserve">
+    <value>Geçmiş</value>
+  </data>
+  <data name="SynchronizationConflicts.Header" xml:space="preserve">
+    <value>Çakışmalar</value>
+  </data>
+  <data name="SynchronizationErrors.Header" xml:space="preserve">
+    <value>Hatalar</value>
   </data>
   <data name="Synchronize.Text" xml:space="preserve">
     <value>Eşitle</value>
   </data>
   <data name="SyncFixConflictPreferLocal.Label" xml:space="preserve">
     <value>Yerel dosya korunsun</value>
+  </data>
+  <data name="SyncClearHistory.Label" xml:space="preserve">
+    <value>Eşitleme geçmişini temizle</value>
   </data>
   <data name="SyncFixConflictPreferRemote.Label" xml:space="preserve">
     <value>Uzak dosya korunsun</value>
@@ -509,7 +533,37 @@ Lütfen bir süre sonra yeniden deneyin.</value>
   <data name="SyncSuspendedTitle" xml:space="preserve">
     <value>Eşitleme duraklatıldı</value>
   </data>
+  <data name="SynchronizationPage" xml:space="preserve">
+    <value>Eşitleme Durumu</value>
+  </data>
+  <data name="SyncPathLocal.Text" xml:space="preserve">
+    <value>Yerel Yol:</value>
+  </data>
+  <data name="SyncPathRemote.Text" xml:space="preserve">
+    <value>Nextcloud Yolu:</value>
+  </data>
   <data name="ShareTargetListView_Header" xml:space="preserve">
     <value>Dosyaların yüklenmesini istediğiniz klasörü seçin.</value>
+  </data>
+  <data name="SynchronizationFolders.Header" xml:space="preserve">
+    <value>Klasörler</value>
+  </data>
+  <data name="DirectoryListStatusBarText" xml:space="preserve">
+    <value>Items: {0} (folders: {1} files: {2})</value>
+  </data>
+  <data name="HelpTextExpertMode" xml:space="preserve">
+    <value>When the expert mode is enabled, the app provides some additional features/information, which may not be interesting for all users.</value>
+  </data>
+  <data name="HelpTextIgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
+    <value>Ignore invalid self-signed SSL certificates. This allows invalid or incorrect SSL certificate authorities to be used. Be careful, you will not be protected from Man-in-the-middle (mitm) attacks anymore!</value>
+  </data>
+  <data name="AppBarSyncThisFolder.Label" xml:space="preserve">
+    <value>Synchronize this folder</value>
+  </data>
+  <data name="AppBarUnSyncThisFolder.Label" xml:space="preserve">
+    <value>Stop synchronizing this folder</value>
+  </data>
+  <data name="StopSynchronize.Text" xml:space="preserve">
+    <value>Stop synchronizing</value>
   </data>
 </root>
