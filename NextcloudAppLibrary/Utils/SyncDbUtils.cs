@@ -126,7 +126,7 @@
             }
         }
 
-        public static void UnlockFolderSyncInfo(FolderSyncInfo folderSyncInfo)
+        public static void UnlockFolderSyncInfo(FolderSyncInfo folderSyncInfo, bool inBackground)
         {
             lock(fsiLock)
             {
@@ -135,13 +135,19 @@
                     FolderSyncInfo m = (from fsi in db.Table<FolderSyncInfo>()
                                         where fsi.Id == folderSyncInfo.Id
                                         select fsi).FirstOrDefault();
-                    if (m == null || !m.Active)
+                    if (m == null || m.Active == inBackground || m.BgActive != inBackground)
                     {
                         return;
                     }
                     else
                     {
-                        m.Active = false;
+                        if (inBackground)
+                        {
+                            m.BgActive = false;
+                        } else
+                        {
+                            m.Active = false;
+                        }
                         db.Update(m);
                         return;
                     }
@@ -149,7 +155,7 @@
             }
         }
 
-        public static bool LockFolderSyncInfo(FolderSyncInfo folderSyncInfo)
+        public static bool LockFolderSyncInfo(FolderSyncInfo folderSyncInfo, bool inBackground)
         {
             lock (fsiLock)
             {
@@ -158,12 +164,18 @@
                     FolderSyncInfo m = (from fsi in db.Table<FolderSyncInfo>()
                                         where fsi.Id == folderSyncInfo.Id
                                         select fsi).FirstOrDefault();
-                    if(m == null || m.Active)
+                    if(m == null || m.Active || m.BgActive)
                     {
                         return false;
                     } else
                     {
-                        m.Active = true;
+                        if (inBackground)
+                        {
+                            m.BgActive = true;
+                        } else
+                        {
+                            m.Active = true;
+                        }
                         db.Update(m);
                         return true;
                     }

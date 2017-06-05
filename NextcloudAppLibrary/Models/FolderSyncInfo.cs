@@ -14,6 +14,7 @@ namespace NextcloudApp.Models
         public int Id { get; set; }
         public string Path { get; set; }
         public bool Active { get; set; }
+        public bool BgActive { get; set; }
         public string AccessListKey
         {
             get

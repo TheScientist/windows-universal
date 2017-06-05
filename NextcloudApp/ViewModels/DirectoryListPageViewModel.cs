@@ -362,7 +362,7 @@ namespace NextcloudApp.ViewModels
                 }
 
                 SyncService service = new SyncService(folder, resourceInfo, syncInfo);
-                await service.StartSync();
+                await service.StartSync(false);
 
                 if (firstRunDialog != null)
                 {

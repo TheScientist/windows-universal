@@ -151,7 +151,7 @@ namespace NextcloudApp
             foreach(var fsi in activeSyncs)
             {
                 ToastNotificationService.ShowSyncSuspendedNotification(fsi);
-                SyncDbUtils.UnlockFolderSyncInfo(fsi);
+                SyncDbUtils.UnlockFolderSyncInfo(fsi, false);
             }
             return task;
         }

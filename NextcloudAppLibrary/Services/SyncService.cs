@@ -4,7 +4,6 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using NextcloudClient.Types;
-using NextcloudClient.Exceptions;
 using NextcloudApp.Models;
 using Windows.Storage.FileProperties;
 using NextcloudApp.Utils;
@@ -32,9 +31,9 @@ namespace NextcloudApp.Services
             sidList = new List<SyncInfoDetail>();
         }
 
-        public async Task<bool> StartSync()
+        public async Task<bool> StartSync(bool inBackground)
         {
-            if (!SyncDbUtils.LockFolderSyncInfo(folderSyncInfo))
+            if (!SyncDbUtils.LockFolderSyncInfo(folderSyncInfo, inBackground))
             {
                 return false;
             }
@@ -112,7 +111,7 @@ namespace NextcloudApp.Services
             }
             finally
             {
-                SyncDbUtils.UnlockFolderSyncInfo(folderSyncInfo);
+                SyncDbUtils.UnlockFolderSyncInfo(folderSyncInfo, inBackground);
             }
         }
 
@@ -134,7 +133,7 @@ namespace NextcloudApp.Services
 
                 List<ResourceInfo> list = null;
                 list = await client.List(info.Path);
-                //List<Task> syncTasks = new List<Task>();
+                List<Task<int>> syncTasks = new List<Task<int>>();
                 List<IStorageItem> synced = new List<IStorageItem>();
                 if (list != null && list.Count > 0)
                 {
@@ -174,8 +173,8 @@ namespace NextcloudApp.Services
                                     };
 
                                     SyncDbUtils.SaveSyncInfoDetail(syncInfoDetail);
-                                    changesCount = changesCount + await SyncFolder(subInfo, subFolder);
-                                    // syncTasks.Add(SyncFolder(subInfo, subFolder));
+                                    // changesCount = changesCount + await SyncFolder(subInfo, subFolder);
+                                    syncTasks.Add(SyncFolder(subInfo, subFolder));
                                 }
                             }
                             else
@@ -195,8 +194,8 @@ namespace NextcloudApp.Services
                                     SyncDbUtils.SaveSyncInfoDetail(syncInfoDetail);
                                 }
                                 synced.Add(subFolder);
-                                changesCount = changesCount + await SyncFolder(subInfo, subFolder);
-                                // syncTasks.Add(SyncFolder(subInfo, subFolder));
+                                //changesCount = changesCount + await SyncFolder(subInfo, subFolder);
+                                syncTasks.Add(SyncFolder(subInfo, subFolder));
                             }
                         }
                         else
@@ -208,8 +207,8 @@ namespace NextcloudApp.Services
                             {
                                 synced.Add(subFile);
                             }
-                            changesCount = changesCount + await SyncFile(subInfo, subFile, info, folder);
-                            //syncTasks.Add(SyncFile(subInfo, subFile, info, folder));
+                            //changesCount = changesCount + await SyncFile(subInfo, subFile, info, folder);
+                            syncTasks.Add(SyncFile(subInfo, subFile, info, folder));
                         }
                     }
                 }
@@ -217,8 +216,8 @@ namespace NextcloudApp.Services
                 {
                     if (!synced.Contains(file))
                     {
-                        changesCount = changesCount + await SyncFile(null, file, info, folder);
-                        //syncTasks.Add(SyncFile(null, file, info, folder));
+                        //changesCount = changesCount + await SyncFile(null, file, info, folder);
+                        syncTasks.Add(SyncFile(null, file, info, folder));
                     }
                 }
                 foreach (StorageFolder localFolder in localFolders)
@@ -250,8 +249,8 @@ namespace NextcloudApp.Services
                                 };
 
                                 SyncDbUtils.SaveSyncInfoDetail(syncInfoDetail);
-                                changesCount = changesCount + await SyncFolder(subInfo, localFolder);
-                                //syncTasks.Add(SyncFolder(subInfo, localFolder));                                
+                                //changesCount = changesCount + await SyncFolder(subInfo, localFolder);
+                                syncTasks.Add(SyncFolder(subInfo, localFolder));                                
                             }
                             else
                             {
@@ -260,7 +259,10 @@ namespace NextcloudApp.Services
                         }
                     }
                 }
-                //Task.WaitAll(syncTasks.ToArray());
+                foreach(var task in syncTasks)
+                {
+                    changesCount = changesCount + (await task);
+                }
             }
             catch (Exception e)
             {

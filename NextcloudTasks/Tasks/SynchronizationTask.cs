@@ -24,7 +24,7 @@ namespace NextcloudTasks.Tasks
             BackgroundTaskDeferral deferral = taskInstance.GetDeferral();
             Debug.WriteLine("SyncTask " + taskInstance.Task.Name + " starting...");
             taskInstance.Canceled += new BackgroundTaskCanceledEventHandler(OnCanceled);
-
+            ToastNotificationService.ShowSyncStarted();
             await new SyncServiceHelper().SyncAllFolders();
 
             deferral.Complete();

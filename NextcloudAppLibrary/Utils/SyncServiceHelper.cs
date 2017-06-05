@@ -32,7 +32,7 @@ namespace NextcloudApp.Utils
                 };
                 var folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(fsi.AccessListKey);
                 SyncService service = new SyncService(folder, resInfo, fsi);
-                allSyncTasks.Add(service.StartSync());
+                allSyncTasks.Add(service.StartSync(true));
             }
             Task.WaitAll(allSyncTasks.ToArray());
         }

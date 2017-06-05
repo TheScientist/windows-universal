@@ -70,6 +70,42 @@ namespace NextcloudApp.Services
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
+        public static void ShowSyncStarted()
+        {
+            ToastVisual visual = new ToastVisual()
+            {
+                BindingGeneric = new ToastBindingGeneric()
+                {
+                    Children =
+                    {
+                        new AdaptiveText()
+                        {
+                            Text = "Sync started"
+                        },
+                        new AdaptiveText()
+                        {
+                            Text = "Sync started"
+                        }
+                    }
+                }
+            };
+            ToastContent toastContent = new ToastContent()
+            {
+                Visual = visual,
+
+                // Arguments when the user taps body of toast
+                Launch = new QueryString()
+                {
+                    { "action", "bla" }
+                }.ToString()
+            };
+            var toast = new ToastNotification(toastContent.GetXml());
+            toast.ExpirationTime = DateTime.Now.AddMinutes(30); // TODO Replace with syncinterval from settings.
+            // TODO groups/tags?
+            toast.Group = "bla";
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
+
         public static void ShowSyncSuspendedNotification(FolderSyncInfo fsi)
         {
             if(fsi == null)
