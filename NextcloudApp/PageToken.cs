@@ -4,12 +4,19 @@
     {
         Login,
         DirectoryList,
+        Favorites,
+        SharesIn,
+        SharesOut,
+        SharesLink,
         FileInfo,
         Settings,
         FileDownload,
         FileUpload,
         MoveFileOrFolder,
         Verification,
+        ShareTarget,
+        FileSavePicker,
+        SyncConflict,
         SyncStatus
     }
 }

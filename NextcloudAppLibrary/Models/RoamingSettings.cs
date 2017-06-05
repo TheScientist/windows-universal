@@ -1,4 +1,5 @@
-﻿using NextcloudApp.Utils;
+﻿using Newtonsoft.Json;
+using NextcloudApp.Utils;
 using Windows.Storage;
 
 namespace NextcloudApp.Models
@@ -8,30 +9,39 @@ namespace NextcloudApp.Models
     /// </summary>
     public class RoamingSettings : ObservableSettings
     {
-        private static RoamingSettings settings = new RoamingSettings();
-        private const string DefaultValueEmptyString = "";
-
-        public static RoamingSettings Default
-        {
-            get
-            {
-                return settings;
-            }
-        }
+        public static RoamingSettings Default { get; } = new RoamingSettings();
 
         public RoamingSettings()
             : base(ApplicationData.Current.RoamingSettings)
         {
         }
 
+        // As only serializable objects can be stored in the LocalSettings, we use a string internally.
+        [DefaultSettingValue(Value = Theme.System)]
+        public Theme Theme
+        {
+            get
+            {
+                var strVal = Get<string>();
+
+                return string.IsNullOrEmpty(strVal) ? Theme.System : JsonConvert.DeserializeObject<Theme>(strVal);
+            }
+            set
+            {
+                var strVal = JsonConvert.SerializeObject(value);
+                Set(strVal);
+            }
+        }
+
         public void Reset()
         {
             // Do not raise PropertyChanged event when resetting.
-            this.enableRaisePropertyChanged = false;
+            EnableRaisePropertyChanged = false;
 
             //  Assign default values to your settings here.
+            Theme = Theme.System;
 
-            this.enableRaisePropertyChanged = true;
+            EnableRaisePropertyChanged = true;
         }
     }
 }

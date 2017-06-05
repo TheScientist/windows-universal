@@ -544,6 +544,7 @@ namespace NextcloudApp.Services
             }
             catch (Exception e)
             {
+                // TODO: do not write only the raw exception message in the sid.Error.
                 sid.Error = e.Message;
             }
             Debug.WriteLine("Synced file " + sid.ToString());
@@ -568,13 +569,19 @@ namespace NextcloudApp.Services
             CachedFileManager.DeferUpdates(localFile);
             var properties = await localFile.GetBasicPropertiesAsync();
             long BytesTotal = (long)properties.Size;
-
-            using (var stream = await localFile.OpenAsync(FileAccessMode.Read))
             {
-                var targetStream = stream.AsStreamForRead();
 
-                IProgress<WebDavProgress> progress = new Progress<WebDavProgress>(ProgressHandler);
-                result = await client.Upload(path, targetStream, localFile.ContentType, progress, _cts.Token);
+                using (var stream = await localFile.OpenAsync(FileAccessMode.Read))
+                {
+                    var targetStream = stream.AsStreamForRead();
+
+                    IProgress<WebDavProgress> progress = new Progress<WebDavProgress>(ProgressHandler);
+                    result = await client.Upload(path, targetStream, localFile.ContentType, progress, _cts.Token);
+                }
+            }
+            catch (ResponseError e2)
+            {
+                ResponseErrorHandlerService.HandleException(e2);
             }
 
             // Let Windows know that we're finished changing the file so

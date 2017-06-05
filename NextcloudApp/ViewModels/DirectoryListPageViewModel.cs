@@ -23,7 +23,7 @@ namespace NextcloudApp.ViewModels
     {
         private LocalSettings _settings;
         private DirectoryService _directoryService;
-        private TileService _tileService;
+        private readonly TileService _tileService;
         private ResourceInfo _selectedFileOrFolder;
         private int _selectedPathIndex = -1;
         private readonly INavigationService _navigationService;
@@ -56,6 +56,7 @@ namespace NextcloudApp.ViewModels
         public ICommand MoveSelectedCommand { get; private set; }
         public ICommand PinToStartCommand { get; private set; }
         public ICommand SelectToggleCommand { get; private set; }
+        public ICommand ToggleFavoriteCommand { get; private set; }
 
         public DirectoryListPageViewModel(INavigationService navigationService, IResourceLoader resourceLoader, DialogService dialogService)
         {
@@ -64,46 +65,57 @@ namespace NextcloudApp.ViewModels
             _dialogService = dialogService;
             _tileService = TileService.Instance;
 
+            /**
+             * Contains the User Settings ie. Server-Address and Username
+             */
             Settings = SettingsService.Instance.LocalSettings;
 
             GroupByNameAscendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupByNameAscending();
+                SelectedFileOrFolder = null;
             });
 
             GroupByNameDescendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupByNameDescending();
+                SelectedFileOrFolder = null;
             });
 
             GroupByDateAscendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupByDateAscending();
+                SelectedFileOrFolder = null;
             });
 
             GroupByDateDescendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupByDateDescending();
+                SelectedFileOrFolder = null;
             });
 
             GroupBySizeAscendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupBySizeAscending();
+                SelectedFileOrFolder = null;
             });
 
             GroupBySizeDescendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupBySizeDescending();
+                SelectedFileOrFolder = null;
             });
 
             GroupByTypeAscendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupByTypeAscending();
+                SelectedFileOrFolder = null;
             });
 
             GroupByTypeDescendingCommand = new DelegateCommand(() =>
             {
                 Directory.GroupByTypeDescending();
+                SelectedFileOrFolder = null;
             });
 
             SelectedFileOrFolder = null;
@@ -113,6 +125,7 @@ namespace NextcloudApp.ViewModels
                 ShowProgressIndicator();
                 await Directory.Refresh();
                 HideProgressIndicator();
+                this.SelectedFileOrFolder = null;
             });
 
             SelectToggleCommand = new DelegateCommand(() =>
@@ -136,6 +149,7 @@ namespace NextcloudApp.ViewModels
             MoveSelectedCommand = new RelayCommand(MoveSelected);
             //PinToStartCommand = new DelegateCommand<object>(PinToStart, CanPinToStart);
             PinToStartCommand = new DelegateCommand<object>(PinToStart);
+            ToggleFavoriteCommand = new RelayCommand(ToggleFavorite);
         }
 
         public override void OnNavigatedTo(NavigatedToEventArgs e, Dictionary<string, object> viewModelState)
@@ -144,12 +158,6 @@ namespace NextcloudApp.ViewModels
             Directory = DirectoryService.Instance;
             StartDirectoryListing();
             _isNavigatingBack = false;
-
-            if (e.Parameter != null)
-            {
-                var parameter = FileInfoPageParameters.Deserialize(e.Parameter);
-                SelectedFileOrFolder = parameter?.ResourceInfo;
-            }
         }
 
         public override void OnNavigatingFrom(NavigatingFromEventArgs e, Dictionary<string, object> viewModelState, bool suspending)
@@ -159,7 +167,7 @@ namespace NextcloudApp.ViewModels
             if (!suspending)
             {
                 _isNavigatingBack = true;
-                Directory.StopDirectoryListing();
+                if (Directory != null) Directory.StopDirectoryListing();
                 Directory = null;
                 _selectedFileOrFolder = null;
             }
@@ -257,6 +265,8 @@ namespace NextcloudApp.ViewModels
             }
 
             await SychronizeFolder(resourceInfo);
+            await Directory.StartDirectoryListing();
+            SelectedFileOrFolder = null;
         }
 
         private async Task SychronizeFolder(ResourceInfo resourceInfo)
@@ -570,6 +580,20 @@ namespace NextcloudApp.ViewModels
             _navigationService.Navigate(PageToken.FileUpload.ToString(), parameters.Serialize());
         }
 
+        private async void ToggleFavorite(object parameter)
+        {
+            var res = parameter as ResourceInfo;
+
+            if (res == null)
+                return;
+
+            ShowProgressIndicator();
+            await Directory.ToggleFavorite(res);            
+            await Directory.Refresh();
+            HideProgressIndicator();
+            SelectedFileOrFolder = null;
+        }
+
         private async void CreateDirectory()
         {
             while (true)
@@ -694,7 +718,7 @@ namespace NextcloudApp.ViewModels
         public DirectoryService Directory
         {
             get { return _directoryService; }
-            private set { SetProperty(ref _directoryService, value); }
+            set { SetProperty(ref _directoryService, value); }
         }
 
         public LocalSettings Settings
@@ -703,7 +727,7 @@ namespace NextcloudApp.ViewModels
             private set { SetProperty(ref _settings, value); }
         }
 
-        public ResourceInfo SelectedFileOrFolder
+        public virtual ResourceInfo SelectedFileOrFolder
         {
             get { return _selectedFileOrFolder; }
             set

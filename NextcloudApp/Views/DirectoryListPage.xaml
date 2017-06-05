@@ -71,7 +71,7 @@
                                         VerticalAlignment="Center"
                                         Visibility="{Binding IsRoot, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=true}"/>
                                     <FontIcon 
-                                        Glyph="{StaticResource NextclousLogo}"
+                                        Glyph="{StaticResource NextcloudLogo}"
                                         FontFamily="{StaticResource NextcloudIcons}"
                                         Margin="8,0,8,0"
                                         VerticalAlignment="Center"
@@ -127,6 +127,7 @@
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="Padding" Value="4,2,4,2"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.GroupStyle>
@@ -185,7 +186,7 @@
                     </ListView.GroupStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
+                            <Grid HorizontalAlignment="Stretch">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
@@ -193,6 +194,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Grid
@@ -222,7 +224,9 @@
                                     Grid.Column="1"
                                     Text="{Binding Name}" 
                                     TextWrapping="NoWrap" 
-                                    TextTrimming="CharacterEllipsis" />
+                                    TextTrimming="CharacterEllipsis"
+                                    VerticalAlignment="Top"/>
+
                                 <StackPanel 
                                     Grid.Row="1" 
                                     Grid.Column="1"
@@ -236,6 +240,22 @@
                                         Foreground="{StaticResource SystemControlForegroundBaseMediumBrush}"/>
                                 </StackPanel>
 
+                                <Button 
+                                    Grid.Column="2"
+                                    Grid.RowSpan="2"
+                                    Style="{StaticResource FavoriteButtonStyle}"
+                                    Command="{Binding DataContext.ToggleFavoriteCommand, ElementName=Page, Mode=OneTime}"
+                                    CommandParameter="{Binding}">
+                                    <FontIcon 
+                                    Glyph="{Binding Converter={StaticResource FavoriteToIconConverter}}" 
+                                    Margin="10,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="16"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Foreground="{StaticResource SystemControlHighlightAccentBrush}"/>
+                                </Button>
+
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Holding">
                                         <actions:OpenMenuFlyoutAction />
@@ -244,6 +264,7 @@
                                         <actions:OpenMenuFlyoutAction />
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
+                                
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>
                                         <MenuFlyoutItem 
@@ -286,7 +307,7 @@
                                         <MenuFlyoutItem 
                                             Tag="SyncFolder"
                                             x:Uid="Synchronize"
-                                            Text="Synchronize"
+                                            Text="{Binding Converter={StaticResource SynchronizeFolderToTextConverter}}"
                                             Command="{Binding DataContext.SynchronizeFolderCommand, ElementName=Page}"
                                             CommandParameter="{Binding}"
                                             Style="{StaticResource MenuFlyoutIconItemStyle}"
@@ -343,28 +364,38 @@
             </SemanticZoom.ZoomedOutView>
         </SemanticZoom>
 
-        <StackPanel Orientation="Horizontal" Height="25" Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlBackgroundBaseMediumBrush}">
-            <TextBlock Margin="25,0,0,0" Text="{Binding StatusBarText, Mode=OneWay}" />
+        <StackPanel 
+            Orientation="Horizontal"
+            Grid.Row="2"
+            Background="{ThemeResource SystemControlHighlightListLowBrush}">
+            <!--
+            BorderThickness="0,1,0,0"
+            BorderBrush="{ThemeResource SystemControlForegroundBaseMediumBrush}">
+            -->
+            <TextBlock 
+                Margin="10,3,10,5" 
+                FontSize="12"
+                Text="{Binding StatusBarText, Mode=OneWay}" />
         </StackPanel>
-        
+
         <CommandBar Grid.Row="3" VerticalAlignment="Bottom">
             <CommandBar.SecondaryCommands>
                 <AppBarButton 
-                Icon="Sync" 
-                Label="Refresh" 
-                x:Uid="AppBarRefresh"
-                Command="{Binding RefreshCommand}"/>
+                    Icon="Sync" 
+                    Label="Refresh" 
+                    x:Uid="AppBarRefresh"
+                    Command="{Binding RefreshCommand}"/>
                 <AppBarButton 
-                Icon="SyncFolder" 
-                Label="Synchronize this folder" 
-                x:Uid="AppBarSyncThisFolder"
-                Command="{Binding SynchronizeThisFolderCommand}"/>
+                    Icon="SyncFolder" 
+                    x:Uid="SyncFolder"
+                    Label="{Binding SelectedFileOrFolder, Converter={StaticResource SynchronizeThisFolderToTextConverter}}"
+                    Command="{Binding SynchronizeThisFolderCommand}"/>
                 <AppBarButton 
-                Icon="UnsyncFolder" 
-                Label="Stop synchronizing this folder" 
-                x:Uid="AppBarUnSyncThisFolder"
-                Command="{Binding StopSynchronizeThisFolderCommand}"
-                IsEnabled="{Binding SelectedFileOrFolder, Converter={StaticResource IsThisFolderSyncedToIsEnabledConverter}}"/>
+                    Icon="UnsyncFolder" 
+                    Label="Stop synchronizing this folder" 
+                    x:Uid="AppBarUnSyncThisFolder"
+                    Command="{Binding StopSynchronizeThisFolderCommand}"
+                    IsEnabled="{Binding SelectedFileOrFolder, Converter={StaticResource IsThisFolderSyncedToIsEnabledConverter}}"/>
             </CommandBar.SecondaryCommands>
             <AppBarButton 
                 x:Uid="AppBarSelect" 
@@ -407,11 +438,11 @@
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutItem 
                             x:Uid="AppBarSort_Flyout_ByTypeASC" 
-                            Text="Typ (aufsteigend)"
+                            Text="Typ (A nach oben)"
                             Command="{Binding GroupByTypeAscendingCommand}"/>
                         <MenuFlyoutItem 
                             x:Uid="AppBarSort_Flyout_ByTypeDESC" 
-                            Text="Typ (absteigend)"
+                            Text="Typ (Z nach oben)"
                             Command="{Binding GroupByTypeDescendingCommand}"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
@@ -475,3 +506,4 @@
     </Grid>
 
 </prismMvvm:SessionStateAwarePage>
+

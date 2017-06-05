@@ -8,7 +8,7 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:behaviors="using:NextcloudApp.Behaviors"
     xmlns:actions="using:NextcloudApp.Actions"
-    x:Class="NextcloudApp.Views.DirectoryListPage"
+    x:Class="NextcloudApp.Views.SharesOutPage"
     x:Name="Page"
     mc:Ignorable="d"
     prismMvvm:ViewModelLocator.AutoWireViewModel="True"
@@ -25,6 +25,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="48" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
@@ -70,7 +71,7 @@
                                         VerticalAlignment="Center"
                                         Visibility="{Binding IsRoot, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=true}"/>
                                     <FontIcon 
-                                        Glyph="{StaticResource NextclousLogo}"
+                                        Glyph="{StaticResource NextcloudLogo}"
                                         FontFamily="{StaticResource NextcloudIcons}"
                                         Margin="8,0,8,0"
                                         VerticalAlignment="Center"
@@ -101,7 +102,7 @@
                     IsHoldingEnabled="True" 
                     ItemsSource="{Binding Source={StaticResource GroupedFilesAndFolders}}" 
                     SelectedItem="{Binding SelectedFileOrFolder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    SelectionMode="{Binding Directory.IsSorting, Converter={StaticResource IsSortingToSelectionModeConverter}}" 
+                    SelectionMode="{Binding Directory.SelectionMode}" 
                     Padding="0,2,0,2"
                     ContinuumNavigationTransitionInfo.ExitElementContainer="True">
                     <ListView.Resources>
@@ -237,9 +238,6 @@
 
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Holding">
-                                    <actions:OpenMenuFlyoutAction />
-                                    </core:EventTriggerBehavior>
-                                    <core:EventTriggerBehavior EventName="RightTapped">
                                         <actions:OpenMenuFlyoutAction />
                                     </core:EventTriggerBehavior>
                                     <core:EventTriggerBehavior EventName="RightTapped">
@@ -286,7 +284,6 @@
                                             Style="{StaticResource MenuFlyoutIconItemStyle}"
                                             Visibility="{Binding Converter={StaticResource IsFileAndNotFolderToVisibilityConverter}}"/>
                                         <MenuFlyoutItem 
-<<<<<<< HEAD
                                             Tag="SyncFolder"
                                             x:Uid="Synchronize"
                                             Text="Synchronize"
@@ -302,14 +299,13 @@
                                             CommandParameter="{Binding}"
                                             Style="{StaticResource MenuFlyoutIconItemStyle}"
                                             Visibility="{Binding Converter={StaticResource IsFolderSyncedConverter}}"/>
-=======
+                                        <MenuFlyoutItem 
                                             Tag="Pin"
                                             x:Uid="PinToStart"
                                             Text="Pin to start"
                                             Command="{Binding DataContext.PinToStartCommand, ElementName=Page}"
                                             CommandParameter="{Binding}"
                                             Style="{StaticResource MenuFlyoutIconItemStyle}"/>
->>>>>>> 0a2c7080892d655af32ddf54269cd2582e39f133
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </Grid>
@@ -338,14 +334,20 @@
                                     TextWrapping="NoWrap"
                                     HorizontalAlignment="Center" 
                                     VerticalAlignment="Center"
-                                    Margin="8"/>
+                                    Margin="8"
+                                    Padding="8"/>
                             </Border>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
             </SemanticZoom.ZoomedOutView>
         </SemanticZoom>
-        <CommandBar Grid.Row="2" VerticalAlignment="Bottom">
+
+        <StackPanel Orientation="Horizontal" Height="25" Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlBackgroundBaseMediumBrush}">
+            <TextBlock Margin="25,0,0,0" Text="{Binding StatusBarText, Mode=OneWay}" />
+        </StackPanel>
+
+        <CommandBar Grid.Row="3" VerticalAlignment="Bottom">
             <CommandBar.SecondaryCommands>
                 <AppBarButton 
                 Icon="Sync" 
@@ -353,7 +355,16 @@
                 x:Uid="AppBarRefresh"
                 Command="{Binding RefreshCommand}"/>
             </CommandBar.SecondaryCommands>
-            <AppBarButton Icon="Sort" Label="Sort" x:Uid="AppBarSort">
+            <AppBarButton 
+                x:Uid="AppBarSelect" 
+                Icon="Bullets" 
+                Label="Select" 
+                Command="{Binding SelectToggleCommand}"/>
+            <AppBarButton
+                x:Uid="AppBarSort"
+                Icon="Sort" 
+                Label="Sort" 
+                Visibility="{Binding Directory.IsSelecting, Converter={StaticResource IsSelectingToVisibilityConverter}, ConverterParameter=true}">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
                         <MenuFlyoutItem 
@@ -382,39 +393,39 @@
                             x:Uid="AppBarSort_Flyout_BySizeDESC" 
                             Text="Größe (Größte nach oben)"
                             Command="{Binding GroupBySizeDescendingCommand}"/>
-                    </MenuFlyout>
-                </AppBarButton.Flyout>
-            </AppBarButton>
-            <AppBarButton Icon="Add" Label="Add" x:Uid="AppBarAdd">
-                <AppBarButton.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem 
-                            Tag="NewFolder" 
-                            x:Uid="AppBarAdd_Flyout_CreateFolder" 
-                            Text="Create folder" 
-                            Style="{StaticResource MenuFlyoutIconItemStyle}"
-                            Command="{Binding CreateDirectoryCommand}"/>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutItem 
-                            Tag="Add" 
-                            x:Uid="AppBarAdd_Flyout_UploadFiles" 
-                            Text="Upload files" 
-                            Style="{StaticResource MenuFlyoutIconItemStyle}"
-                            Command="{Binding UploadFilesCommand}" />
+                            x:Uid="AppBarSort_Flyout_ByTypeASC" 
+                            Text="Typ (aufsteigend)"
+                            Command="{Binding GroupByTypeAscendingCommand}"/>
                         <MenuFlyoutItem 
-                            Tag="Street" 
-                            x:Uid="AppBarAdd_Flyout_UploadPhotos" 
-                            Text="Upload photos" 
-                            Style="{StaticResource MenuFlyoutIconItemStyle}"
-                            Command="{Binding UploadPhotosCommand}" />
-                        <!--MenuFlyoutItem 
-                            Tag="Camera" 
-                            x:Uid="AppBarAdd_Flyout_TakePicture" 
-                            Text="Take picture" 
-                            Style="{StaticResource MenuFlyoutIconItemStyle}" /-->
+                            x:Uid="AppBarSort_Flyout_ByTypeDESC" 
+                            Text="Typ (absteigend)"
+                            Command="{Binding GroupByTypeDescendingCommand}"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
+            <AppBarButton
+                Icon="MoveToFolder"
+                x:Uid="MoveTo_Label"
+                Label="Move to"
+                Command="{Binding DataContext.MoveSelectedCommand, ElementName=Page}"
+                CommandParameter="{Binding ElementName=FileOrFolderListView}"
+                Visibility="{Binding Directory.IsSelecting, Converter={StaticResource IsSelectingToVisibilityConverter}}"/>
+            <AppBarButton
+                Icon="Delete"
+                x:Uid="Delete_Label"
+                Label="Delete"
+                Command="{Binding DataContext.DeleteSelectedCommand, ElementName=Page}"
+                CommandParameter="{Binding ElementName=FileOrFolderListView}"
+                Visibility="{Binding Directory.IsSelecting, Converter={StaticResource IsSelectingToVisibilityConverter}}"/>
+            <AppBarButton
+                Icon="Download"
+                x:Uid="AppBarDownload"
+                Label="AppBarDownload"
+                Command="{Binding DataContext.DownloadSelectedCommand, ElementName=Page}"
+                CommandParameter="{Binding ElementName=FileOrFolderListView}"
+                Visibility="{Binding Directory.IsSelecting, Converter={StaticResource IsSelectingToVisibilityConverter}}"/>
         </CommandBar>
     </Grid>
 

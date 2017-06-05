@@ -24,5 +24,19 @@
         public static string HelpText_ExpertMode = "HelpTextExpertMode";
 
         public static string HelpText_HelpTextIgnoreInvalidSelfSignedSslCertificates = "HelpTextIgnoreInvalidSelfSignedSslCertificates";
+
+        public static string SynchronizeNow = "SynchronizeNow";
+
+        public static string SynchronizeStart = "SynchronizeStart";
+
+        public static string SynchronizeThisFolderStart = "SynchronizeThisFolderStart";
+
+        public static string SynchronizeThisFolderNow = "SynchronizeThisFolderNow";
+
+        public static string ThemeSystem = "ThemeSystem";
+
+        public static string ThemeDark = "ThemeDark";
+
+        public static string ThemeLight = "ThemeLight";
     }
 }

@@ -21,8 +21,10 @@ namespace NextcloudApp.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly DialogService _dialogService;
-        private LocalSettings _settings;
+        private LocalSettings _settingsLocal;
+        private RoamingSettings _settingsRoaming;
         private int _previewImageDownloadModesSelectedIndex;
+        private int _themeModesSelectedIndex;
         private bool _useWindowsHello;
         private readonly IResourceLoader _resourceLoader;
         private string _serverVersion;
@@ -38,7 +40,8 @@ namespace NextcloudApp.ViewModels
             _navigationService = navigationService;
             _resourceLoader = resourceLoader;
             _dialogService = dialogService;
-            Settings = SettingsService.Instance.LocalSettings;
+            SettingsLocal = SettingsService.Instance.LocalSettings;
+            SettingsRoaming = SettingsService.Instance.RoamingSettings;
 
             PreviewImageDownloadModes.Add(new PreviewImageDownloadModeItem
             {
@@ -58,7 +61,7 @@ namespace NextcloudApp.ViewModels
                 Value = PreviewImageDownloadMode.Never
             });
 
-            switch (Settings.PreviewImageDownloadMode)
+            switch (SettingsLocal.PreviewImageDownloadMode)
             {
                 case PreviewImageDownloadMode.Always:
                     PreviewImageDownloadModesSelectedIndex = 0;
@@ -73,20 +76,53 @@ namespace NextcloudApp.ViewModels
                     throw new ArgumentOutOfRangeException();
             }
 
-            UseWindowsHello = Settings.UseWindowsHello;
-            IgnoreServerCertificateErrors = Settings.IgnoreServerCertificateErrors;
-            ExpertMode = Settings.ExpertMode;
+            UseWindowsHello = SettingsLocal.UseWindowsHello;
+            IgnoreServerCertificateErrors = SettingsLocal.IgnoreServerCertificateErrors;
+            ExpertMode = SettingsLocal.ExpertMode;
 
             ResetCommand = new DelegateCommand(Reset);
             ShowHelpExpertModeCommand = new DelegateCommand(ShowHelpExpertMode);
             ShowHelpIgnoreInvalidSslCertificatesCommand = new DelegateCommand(ShowHelpInvalidSslCertificates);
+
+            ThemeItems.Add(new ThemeItem
+            {
+                Name = resourceLoader.GetString(ResourceConstants.ThemeSystem),
+                Value = Theme.System
+            });
+
+            ThemeItems.Add(new ThemeItem
+            {
+                Name = resourceLoader.GetString(ResourceConstants.ThemeDark),
+                Value = Theme.Dark
+            });
+
+            ThemeItems.Add(new ThemeItem
+            {
+                Name = resourceLoader.GetString(ResourceConstants.ThemeLight),
+                Value = Theme.Light
+            });
+
+            switch (SettingsRoaming.Theme)
+            {
+                case Theme.System:
+                   ThemeModeSelectedIndex = 0;
+                    break;
+                case Theme.Dark:
+                    ThemeModeSelectedIndex = 1;
+                    break;
+                case Theme.Light:
+                    ThemeModeSelectedIndex = 2;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
             GetServerVersion();
         }
 
         private async void GetServerVersion()
         {
-            var status = await NextcloudClient.NextcloudClient.GetServerStatus(Settings.ServerAddress, SettingsService.Instance.LocalSettings.IgnoreServerCertificateErrors);
+            var status = await NextcloudClient.NextcloudClient.GetServerStatus(SettingsLocal.ServerAddress, SettingsService.Instance.LocalSettings.IgnoreServerCertificateErrors);
 
             if (!string.IsNullOrEmpty(status.VersionString))
             {
@@ -96,22 +132,30 @@ namespace NextcloudApp.ViewModels
 
         public string ServerVersion
         {
-            get { return _serverVersion; }
-            private set { SetProperty(ref _serverVersion, value); }
+            get => _serverVersion;
+            private set => SetProperty(ref _serverVersion, value);
         }
 
-        public LocalSettings Settings
+        public LocalSettings SettingsLocal
         {
-            get { return _settings; }
-            private set { SetProperty(ref _settings, value); }
+            get => _settingsLocal;
+            private set => SetProperty(ref _settingsLocal, value);
+        }
+
+        public RoamingSettings SettingsRoaming
+        {
+            get => _settingsRoaming;
+            private set => SetProperty(ref _settingsRoaming, value);
         }
 
         public List<PreviewImageDownloadModeItem> PreviewImageDownloadModes { get; } = new List<PreviewImageDownloadModeItem>();
 
+        public List<ThemeItem> ThemeItems { get; } = new List<ThemeItem>();
+
 
         public int PreviewImageDownloadModesSelectedIndex
         {
-            get { return _previewImageDownloadModesSelectedIndex; }
+            get => _previewImageDownloadModesSelectedIndex;
             set
             {
                 if (!SetProperty(ref _previewImageDownloadModesSelectedIndex, value))
@@ -122,15 +166,38 @@ namespace NextcloudApp.ViewModels
                 switch (value)
                 {
                     case 0:
-                        Settings.PreviewImageDownloadMode = PreviewImageDownloadMode.Always;
+                        SettingsLocal.PreviewImageDownloadMode = PreviewImageDownloadMode.Always;
                         break;
-
                     case 1:
-                        Settings.PreviewImageDownloadMode = PreviewImageDownloadMode.WiFiOnly;
+                        SettingsLocal.PreviewImageDownloadMode = PreviewImageDownloadMode.WiFiOnly;
                         break;
-
                     case 2:
-                        Settings.PreviewImageDownloadMode = PreviewImageDownloadMode.Never;
+                        SettingsLocal.PreviewImageDownloadMode = PreviewImageDownloadMode.Never;
+                        break;
+                }
+            }
+        }
+
+        public int ThemeModeSelectedIndex
+        {
+            get => _themeModesSelectedIndex;
+            set
+            {
+                if (!SetProperty(ref _themeModesSelectedIndex, value))
+                {
+                    return;
+                }
+
+                switch (value)
+                {
+                    case 0:
+                        SettingsRoaming.Theme = Theme.System;
+                        break;
+                    case 1:
+                        SettingsRoaming.Theme = Theme.Dark;
+                        break;
+                    case 2:
+                        SettingsRoaming.Theme = Theme.Light;
                         break;
                 }
             }
@@ -138,13 +205,13 @@ namespace NextcloudApp.ViewModels
 
         public bool IgnoreServerCertificateErrors
         {
-            get { return _ignoreServerCertificateErrors; }
+            get => _ignoreServerCertificateErrors;
             set
             {
                 if (!SetProperty(ref _ignoreServerCertificateErrors, value))
                     return;
 
-                Settings.IgnoreServerCertificateErrors = value;
+                SettingsLocal.IgnoreServerCertificateErrors = value;
             }
         }
 
@@ -170,52 +237,54 @@ namespace NextcloudApp.ViewModels
 
         public bool ExpertMode
         {
-            get { return _expertMode; }
+            get => _expertMode;
             set
             {
                 if (!SetProperty(ref _expertMode, value))
                     return;
 
-                Settings.ExpertMode = value;
+                SettingsLocal.ExpertMode = value;
             }
         }
 
         public bool UseWindowsHello
         {
-            get { return _useWindowsHello; }
+            get => _useWindowsHello;
             set
             {
                 if (!SetProperty(ref _useWindowsHello, value))
                     return;
 
-                Settings.UseWindowsHello = value;
+                SettingsLocal.UseWindowsHello = value;
             }
         }
 
         public async void UseWindowsHelloToggled()
         {
-            if (UseWindowsHello)
+            if (!UseWindowsHello)
             {
-                var available = await VerificationService.CheckAvailabilityAsync();
-
-                if (!available)
-                {
-                    var dialog = new ContentDialog
-                    {
-                        Title = _resourceLoader.GetString(ResourceConstants.DialogTitle_GeneralNextCloudApp),
-                        Content = new TextBlock
-                        {
-                            Text = _resourceLoader.GetString(ResourceConstants.WindowsHelloNotAvailable),
-                            TextWrapping = TextWrapping.WrapWholeWords,
-                            Margin = new Thickness(0, 20, 0, 0)
-                        },
-                        PrimaryButtonText = _resourceLoader.GetString("OK")
-                    };
-                    await _dialogService.ShowAsync(dialog);
-
-                    UseWindowsHello = false;
-                }
+                return;
             }
+            var available = await VerificationService.CheckAvailabilityAsync();
+
+            if (available)
+            {
+                return;
+            }
+            var dialog = new ContentDialog
+            {
+                Title = _resourceLoader.GetString(ResourceConstants.DialogTitle_GeneralNextCloudApp),
+                Content = new TextBlock
+                {
+                    Text = _resourceLoader.GetString(ResourceConstants.WindowsHelloNotAvailable),
+                    TextWrapping = TextWrapping.WrapWholeWords,
+                    Margin = new Thickness(0, 20, 0, 0)
+                },
+                PrimaryButtonText = _resourceLoader.GetString("OK")
+            };
+            await _dialogService.ShowAsync(dialog);
+
+            UseWindowsHello = false;
         }
 
         public string AppVersion

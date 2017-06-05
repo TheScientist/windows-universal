@@ -1,6 +1,5 @@
 ﻿using NextcloudApp.Services;
 using NextcloudApp.Utils;
-using NextcloudClient.Types;
 using System;
 using Windows.UI.Xaml.Data;
 
@@ -35,7 +34,7 @@ namespace NextcloudApp.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return new ResourceInfo();
+            throw new NotImplementedException();
         }
     }
 }

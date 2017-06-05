@@ -14,12 +14,20 @@ using NextcloudApp.Models;
 using NextcloudApp.Utils;
 using NextcloudClient.Exceptions;
 using NextcloudClient.Types;
+using Windows.UI.Core;
 
 namespace NextcloudApp.Services
 {
     public class DirectoryService : INotifyPropertyChanged
     {
         private static DirectoryService _instance;
+        private readonly ObservableGroupingCollection<string, FileOrFolder> _groupedFilesAndFolders;
+        private ObservableGroupingCollection<string, FileOrFolder> _groupedFolders;
+        private bool _isSorting;
+        private bool _continueListing;
+        private bool _isSelecting;
+        private string _selectionMode;
+        //private CoreDispatcher _dispatcher;
 
         private DirectoryService()
         {
@@ -29,6 +37,8 @@ namespace NextcloudApp.Services
             // Arrange for the first time, so that the collections get filled.
             _groupedFilesAndFolders.ArrangeItems(new NameSorter(SortSequence.Asc), x => x.Name.First().ToString().ToUpper());
             _groupedFolders.ArrangeItems(new NameSorter(SortSequence.Asc), x => x.Name.First().ToString().ToUpper());
+
+            //_dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
         }
 
         public static DirectoryService Instance => _instance ?? (_instance = new DirectoryService());
@@ -48,14 +58,6 @@ namespace NextcloudApp.Services
 
         public ObservableCollection<FileOrFolder> FilesAndFolders { get; } = new ObservableCollection<FileOrFolder>();
         public ObservableCollection<FileOrFolder> Folders { get; } = new ObservableCollection<FileOrFolder>();
-
-        private readonly ObservableGroupingCollection<string, FileOrFolder> _groupedFilesAndFolders;
-        private ObservableGroupingCollection<string, FileOrFolder> _groupedFolders;
-        private bool _isSorting;
-        private bool _continueListing;
-        private bool _isSelecting;
-        private string _selectionMode;
-
         public ObservableCollection<Grouping<string, FileOrFolder>> GroupedFilesAndFolders => _groupedFilesAndFolders.Items;
         public ObservableCollection<Grouping<string, FileOrFolder>> GroupedFolders => _groupedFolders.Items;
 
@@ -82,7 +84,7 @@ namespace NextcloudApp.Services
                     GroupBySizeDescending();
                     break;
                 case GroupMode.GroupByTypeAscending:
-                    GroupByTypeAscending();                    
+                    GroupByTypeAscending();
                     break;
                 case GroupMode.GroupByTypeDescending:
                     GroupByTypeDescending();
@@ -210,10 +212,10 @@ namespace NextcloudApp.Services
 
         public async Task StartDirectoryListing()
         {
-            await StartDirectoryListing(null);
+            await StartDirectoryListing(null, null);
         }
 
-        public async Task StartDirectoryListing(ResourceInfo resourceInfoToExclude)
+        public async Task StartDirectoryListing(ResourceInfo resourceInfoToExclude, String viewName = null)
         {
             var client = await ClientService.GetClient();
 
@@ -224,12 +226,38 @@ namespace NextcloudApp.Services
 
             _continueListing = true;
 
+            if (PathStack.Count == 0)
+            {
+                PathStack.Add(new PathInfo
+                {
+                    ResourceInfo = new ResourceInfo()
+                    {
+                        Name = "Nextcloud",
+                        Path = "/"
+                    },
+                    IsRoot = true
+                });
+            }
+
             var path = PathStack.Count > 0 ? PathStack[PathStack.Count - 1].ResourceInfo.Path : "/";
             List<ResourceInfo> list = null;
 
             try
             {
-                list = await client.List(path);
+                if (viewName == "sharesIn" | viewName == "sharesOut" | viewName == "sharesLink")
+                {
+                    PathStack.Clear();
+                    list = await client.GetSharesView(viewName);
+                }
+                else if (viewName == "favorites")
+                {
+                    PathStack.Clear();
+                    list = await client.GetFavorites();
+                }
+                else
+                {
+                    list = await client.List(path);
+                }
             }
             catch (ResponseError e)
             {
@@ -394,6 +422,21 @@ namespace NextcloudApp.Services
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+            //await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            //{
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            //});
+
+            //await Task.Factory.StartNew(
+            //    () =>
+            //    {
+            //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            //    }, 
+            //    CancellationToken.None, 
+            //    TaskCreationOptions.DenyChildAttach | TaskCreationOptions.HideScheduler,
+            //    TaskScheduler.Default
+            //).ConfigureAwait(false);
         }
 
         public void StopDirectoryListing()
@@ -535,6 +578,16 @@ namespace NextcloudApp.Services
                 await StartDirectoryListing();
             }
             return success;
+        }
+
+        public async Task ToggleFavorite(ResourceInfo resourceInfo)
+        {
+            var client = await ClientService.GetClient();
+
+            if (client == null)
+                return;
+
+            await client.ToggleFavorite(resourceInfo);
         }
     }
 }
