@@ -155,15 +155,11 @@
     <Compile Include="Models\MoveFileOrFolderPageParameters.cs" />
     <Compile Include="Models\PageParameters.cs" />
     <Compile Include="Models\PinStartPageParameters.cs" />
-    <Compile Include="Models\PreviewImageDownloadModeItem.cs" />
     <Compile Include="Models\FileDownloadPageParameters.cs" />
     <Compile Include="Models\FileUploadPageParameters.cs" />
     <Compile Include="Models\FileInfoPageParameters.cs" />
     <Compile Include="Models\PreviewImageDownloadModeItem.cs" />
     <Compile Include="Models\ShareTargetPageParameters.cs" />
-    <Compile Include="Models\SyncConflict.cs" />
-    <Compile Include="Models\SyncHistory.cs" />
-    <Compile Include="Models\SyncInfoDetail.cs" />
     <Compile Include="Models\ThemeItem.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\DialogService.cs" />
@@ -176,10 +172,6 @@
     <Compile Include="ShareTarget.xaml.cs">
       <DependentUpon>ShareTarget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utils\DebugTraceListener.cs" />
-    <Compile Include="Utils\DefaultSettingValueAttribute.cs" />
-    <Compile Include="Utils\GroupMode.cs" />
-    <Compile Include="Utils\ObservableSettings.cs" />
     <Compile Include="Services\TileService.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="Utils\SizeSorter.cs" />
@@ -203,12 +195,10 @@
     <Compile Include="Utils\ObservableGroupingCollection.cs" />
     <Compile Include="Utils\SortSequence.cs" />
     <Compile Include="Utils\StringHelper.cs" />
-    <Compile Include="Utils\Theme.cs" />
     <Compile Include="ViewModels\SharesLinkPageViewModel.cs" />
     <Compile Include="ViewModels\SharesInPageViewModel.cs" />
     <Compile Include="ViewModels\SharesOutPageViewModel.cs" />
     <Compile Include="ViewModels\FavoritesPageViewModel.cs" />
-    <Compile Include="Utils\SyncDbUtils.cs" />
     <Compile Include="ViewModels\FileSavePickerPageViewModel.cs" />
     <Compile Include="ViewModels\FileUploadPageViewModel.cs" />
     <Compile Include="ViewModels\MoveFileOrFolderPageViewModel.cs" />

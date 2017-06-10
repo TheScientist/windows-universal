@@ -118,6 +118,7 @@
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\SyncService.cs" />
+    <Compile Include="Utils\Theme.cs" />
     <Compile Include="Services\ToastNotificationService.cs" />
     <Compile Include="Utils\DebugTraceListener.cs" />
     <Compile Include="Utils\DefaultSettingValueAttribute.cs" />

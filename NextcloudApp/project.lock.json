@@ -44,33 +44,33 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.6.1": {
+      "Microsoft.Net.Native.Compiler/1.6.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.0"
+          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.1"
         },
         "build": {
           "build/Microsoft.Net.Native.Compiler.props": {},
           "build/Microsoft.Net.Native.Compiler.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-arm.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-arm.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x64.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-x64.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x86.props": {},
@@ -254,14 +254,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.6.1",
+          "Microsoft.Net.Native.Compiler": "1.6.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -358,6 +358,17 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -424,11 +435,11 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "PortableWebDavLibrary/0.8.2": {
+      "PortableWebDavLibrary/1.0.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "System.Net.Http": "4.3.1",
+          "System.Net.Http": "4.3.2",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Xml.XmlSerializer": "4.3.0"
         },
@@ -1220,7 +1231,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -2586,7 +2597,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
           "NextcloudClientPortable": "1.0.0",
           "QueryString.NET": "1.0.0",
@@ -2597,16 +2608,16 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Newtonsoft.Json": "10.0.2",
-          "PortableWebDavLibrary": "0.8.2"
+          "PortableWebDavLibrary": "1.0.0"
         }
       },
       "NextcloudTasks/1.0.0": {
         "type": "project",
         "framework": "Unsupported,Version=v0.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp": "1.4.1"
         }
       }
@@ -2654,33 +2665,33 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.6.1": {
+      "Microsoft.Net.Native.Compiler/1.6.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.0"
+          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.1"
         },
         "build": {
           "build/Microsoft.Net.Native.Compiler.props": {},
           "build/Microsoft.Net.Native.Compiler.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-arm.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-arm.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x64.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-x64.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x86.props": {},
@@ -2811,14 +2822,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.6.1",
+          "Microsoft.Net.Native.Compiler": "1.6.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -2916,6 +2927,17 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -2982,11 +3004,11 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "PortableWebDavLibrary/0.8.2": {
+      "PortableWebDavLibrary/1.0.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "System.Net.Http": "4.3.1",
+          "System.Net.Http": "4.3.2",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Xml.XmlSerializer": "4.3.0"
         },
@@ -4006,7 +4028,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -5226,7 +5248,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
           "NextcloudClientPortable": "1.0.0",
           "QueryString.NET": "1.0.0",
@@ -5237,16 +5259,16 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Newtonsoft.Json": "10.0.2",
-          "PortableWebDavLibrary": "0.8.2"
+          "PortableWebDavLibrary": "1.0.0"
         }
       },
       "NextcloudTasks/1.0.0": {
         "type": "project",
         "framework": "Unsupported,Version=v0.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp": "1.4.1"
         }
       }
@@ -5294,33 +5316,33 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.6.1": {
+      "Microsoft.Net.Native.Compiler/1.6.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.0"
+          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.1"
         },
         "build": {
           "build/Microsoft.Net.Native.Compiler.props": {},
           "build/Microsoft.Net.Native.Compiler.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-arm.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-arm.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x64.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-x64.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x86.props": {},
@@ -5452,14 +5474,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.6.1",
+          "Microsoft.Net.Native.Compiler": "1.6.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -5557,6 +5579,17 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -5623,11 +5656,11 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "PortableWebDavLibrary/0.8.2": {
+      "PortableWebDavLibrary/1.0.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "System.Net.Http": "4.3.1",
+          "System.Net.Http": "4.3.2",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Xml.XmlSerializer": "4.3.0"
         },
@@ -6685,7 +6718,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -7905,7 +7938,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
           "NextcloudClientPortable": "1.0.0",
           "QueryString.NET": "1.0.0",
@@ -7916,16 +7949,16 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Newtonsoft.Json": "10.0.2",
-          "PortableWebDavLibrary": "0.8.2"
+          "PortableWebDavLibrary": "1.0.0"
         }
       },
       "NextcloudTasks/1.0.0": {
         "type": "project",
         "framework": "Unsupported,Version=v0.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp": "1.4.1"
         }
       }
@@ -7973,33 +8006,33 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.6.1": {
+      "Microsoft.Net.Native.Compiler/1.6.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.0"
+          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.1"
         },
         "build": {
           "build/Microsoft.Net.Native.Compiler.props": {},
           "build/Microsoft.Net.Native.Compiler.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-arm.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-arm.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x64.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-x64.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x86.props": {},
@@ -8133,14 +8166,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.6.1",
+          "Microsoft.Net.Native.Compiler": "1.6.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -8238,6 +8271,17 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -8304,11 +8348,11 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "PortableWebDavLibrary/0.8.2": {
+      "PortableWebDavLibrary/1.0.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "System.Net.Http": "4.3.1",
+          "System.Net.Http": "4.3.2",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Xml.XmlSerializer": "4.3.0"
         },
@@ -9334,7 +9378,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -10554,7 +10598,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
           "NextcloudClientPortable": "1.0.0",
           "QueryString.NET": "1.0.0",
@@ -10565,16 +10609,16 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Newtonsoft.Json": "10.0.2",
-          "PortableWebDavLibrary": "0.8.2"
+          "PortableWebDavLibrary": "1.0.0"
         }
       },
       "NextcloudTasks/1.0.0": {
         "type": "project",
         "framework": "Unsupported,Version=v0.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp": "1.4.1"
         }
       }
@@ -10622,33 +10666,33 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.6.1": {
+      "Microsoft.Net.Native.Compiler/1.6.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.0"
+          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.1"
         },
         "build": {
           "build/Microsoft.Net.Native.Compiler.props": {},
           "build/Microsoft.Net.Native.Compiler.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-arm.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-arm.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x64.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-x64.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x86.props": {},
@@ -10783,14 +10827,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.6.1",
+          "Microsoft.Net.Native.Compiler": "1.6.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -10888,6 +10932,17 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -10954,11 +11009,11 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "PortableWebDavLibrary/0.8.2": {
+      "PortableWebDavLibrary/1.0.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "System.Net.Http": "4.3.1",
+          "System.Net.Http": "4.3.2",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Xml.XmlSerializer": "4.3.0"
         },
@@ -12022,7 +12077,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -13242,7 +13297,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
           "NextcloudClientPortable": "1.0.0",
           "QueryString.NET": "1.0.0",
@@ -13253,16 +13308,16 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Newtonsoft.Json": "10.0.2",
-          "PortableWebDavLibrary": "0.8.2"
+          "PortableWebDavLibrary": "1.0.0"
         }
       },
       "NextcloudTasks/1.0.0": {
         "type": "project",
         "framework": "Unsupported,Version=v0.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp": "1.4.1"
         }
       }
@@ -13310,33 +13365,33 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.6.1": {
+      "Microsoft.Net.Native.Compiler/1.6.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.0"
+          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.1"
         },
         "build": {
           "build/Microsoft.Net.Native.Compiler.props": {},
           "build/Microsoft.Net.Native.Compiler.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-arm.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-arm.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x64.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-x64.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x86.props": {},
@@ -13470,14 +13525,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.6.1",
+          "Microsoft.Net.Native.Compiler": "1.6.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -13575,6 +13630,17 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -13641,11 +13707,11 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "PortableWebDavLibrary/0.8.2": {
+      "PortableWebDavLibrary/1.0.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "System.Net.Http": "4.3.1",
+          "System.Net.Http": "4.3.2",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Xml.XmlSerializer": "4.3.0"
         },
@@ -14671,7 +14737,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -15891,7 +15957,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
           "NextcloudClientPortable": "1.0.0",
           "QueryString.NET": "1.0.0",
@@ -15902,16 +15968,16 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Newtonsoft.Json": "10.0.2",
-          "PortableWebDavLibrary": "0.8.2"
+          "PortableWebDavLibrary": "1.0.0"
         }
       },
       "NextcloudTasks/1.0.0": {
         "type": "project",
         "framework": "Unsupported,Version=v0.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp": "1.4.1"
         }
       }
@@ -15959,33 +16025,33 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.6.1": {
+      "Microsoft.Net.Native.Compiler/1.6.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.0",
-          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.0"
+          "Microsoft.Net.Native.SharedLibrary-arm": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x64": "1.6.1",
+          "Microsoft.Net.Native.SharedLibrary-x86": "1.6.1"
         },
         "build": {
           "build/Microsoft.Net.Native.Compiler.props": {},
           "build/Microsoft.Net.Native.Compiler.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-arm.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-arm.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x64.props": {},
           "build/Microsoft.Net.Native.SharedLibrary-x64.targets": {}
         }
       },
-      "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
+      "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
         "type": "package",
         "build": {
           "build/Microsoft.Net.Native.SharedLibrary-x86.props": {},
@@ -16120,14 +16186,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.6.1",
+          "Microsoft.Net.Native.Compiler": "1.6.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -16225,6 +16291,17 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -16291,11 +16368,11 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "PortableWebDavLibrary/0.8.2": {
+      "PortableWebDavLibrary/1.0.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "System.Net.Http": "4.3.1",
+          "System.Net.Http": "4.3.2",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Xml.XmlSerializer": "4.3.0"
         },
@@ -17359,7 +17436,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -18579,7 +18656,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
           "NextcloudClientPortable": "1.0.0",
           "QueryString.NET": "1.0.0",
@@ -18590,16 +18667,16 @@
         "type": "project",
         "framework": "UAP,Version=v10.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Newtonsoft.Json": "10.0.2",
-          "PortableWebDavLibrary": "0.8.2"
+          "PortableWebDavLibrary": "1.0.0"
         }
       },
       "NextcloudTasks/1.0.0": {
         "type": "project",
         "framework": "Unsupported,Version=v0.0",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
           "Microsoft.Toolkit.Uwp": "1.4.1"
         }
       }
@@ -18687,14 +18764,14 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microsoft.Net.Native.Compiler/1.6.1": {
-      "sha512": "Xi4AB0vkO7o8krFGdl5XWXsG2lIljmIqdBc+XMi338Kp4iv57Y3j129d3gQeTikRduAsQ1uqEXUwogDfmkqtWA==",
+    "Microsoft.Net.Native.Compiler/1.6.2": {
+      "sha512": "28VesDpHpRatYNlydGB2JbCpjOo2Ils4v2J/O46lHKpLgmCrf6UzAwWnUZq5fhLzJETWb+a0AlENY3hABASQEg==",
       "type": "package",
-      "path": "microsoft.net.native.compiler/1.6.1",
+      "path": "microsoft.net.native.compiler/1.6.2",
       "files": [
         "build/Microsoft.Net.Native.Compiler.props",
         "build/Microsoft.Net.Native.Compiler.targets",
-        "microsoft.net.native.compiler.1.6.1.nupkg.sha512",
+        "microsoft.net.native.compiler.1.6.2.nupkg.sha512",
         "microsoft.net.native.compiler.nuspec",
         "tools/LibraryXML/Callisto.rd.xml",
         "tools/LibraryXML/GalaSoft.MvvmLight.Extras.Win8.rd.xml",
@@ -19582,14 +19659,14 @@
         "tools/x86/mrt100etw.dll"
       ]
     },
-    "Microsoft.Net.Native.SharedLibrary-arm/1.6.0": {
-      "sha512": "6tms4tVQoedKirFMs8q6qCLESDW3uAmFLWwUOB4lKDGtN+MHktTvA+VomsOWYtI//ByH1VSCIBvHVIqiNY8HXQ==",
+    "Microsoft.Net.Native.SharedLibrary-arm/1.6.1": {
+      "sha512": "PmgXdc9F6HPU2J9s4rtzkgTqGcMx3ycradUvxRK82WTL0ltknTX4/+ZDgqYUiEdOMHwkXoAHnKcQfsIC3GQ2Ng==",
       "type": "package",
-      "path": "microsoft.net.native.sharedlibrary-arm/1.6.0",
+      "path": "microsoft.net.native.sharedlibrary-arm/1.6.1",
       "files": [
         "build/Microsoft.Net.Native.SharedLibrary-arm.props",
         "build/Microsoft.Net.Native.SharedLibrary-arm.targets",
-        "microsoft.net.native.sharedlibrary-arm.1.6.0.nupkg.sha512",
+        "microsoft.net.native.sharedlibrary-arm.1.6.1.nupkg.sha512",
         "microsoft.net.native.sharedlibrary-arm.nuspec",
         "tools/SharedLibrary/chk/AnalysisILToc/System.Collections.Concurrent.iltoc",
         "tools/SharedLibrary/chk/AnalysisILToc/System.Collections.Concurrent.iltocpdb",
@@ -19982,14 +20059,14 @@
         "tools/SharedLibrary/ret/Toc/System.Text.RegularExpressions.toc"
       ]
     },
-    "Microsoft.Net.Native.SharedLibrary-x64/1.6.0": {
-      "sha512": "pLNmswGR+pzjLOgq+0oABz3e2C5XjSmTo81MFPSN9CeKyYiMb2eybU1fJRjyk86XFMfENK26gGUSVMhAo4zH/g==",
+    "Microsoft.Net.Native.SharedLibrary-x64/1.6.1": {
+      "sha512": "AEd9UK6oq46NBMO29LquKza/cyaIsrrfFRMZbmDlOArS5sMVOUGga3vBDebwgRzmYtUdFFmRu3XaaKhVrncEbw==",
       "type": "package",
-      "path": "microsoft.net.native.sharedlibrary-x64/1.6.0",
+      "path": "microsoft.net.native.sharedlibrary-x64/1.6.1",
       "files": [
         "build/Microsoft.Net.Native.SharedLibrary-x64.props",
         "build/Microsoft.Net.Native.SharedLibrary-x64.targets",
-        "microsoft.net.native.sharedlibrary-x64.1.6.0.nupkg.sha512",
+        "microsoft.net.native.sharedlibrary-x64.1.6.1.nupkg.sha512",
         "microsoft.net.native.sharedlibrary-x64.nuspec",
         "tools/SharedLibrary/chk/AnalysisILToc/System.Collections.Concurrent.iltoc",
         "tools/SharedLibrary/chk/AnalysisILToc/System.Collections.Concurrent.iltocpdb",
@@ -20382,14 +20459,14 @@
         "tools/SharedLibrary/ret/Toc/System.Text.RegularExpressions.toc"
       ]
     },
-    "Microsoft.Net.Native.SharedLibrary-x86/1.6.0": {
-      "sha512": "AC1O3na4oqgWdvjoMjVPvt2vCO9VESTkArknbTlep5NWVRdMU2nay4XHYWBleOhweE2kw52kJHv1BGN0dcXjhQ==",
+    "Microsoft.Net.Native.SharedLibrary-x86/1.6.1": {
+      "sha512": "jurbK0IemAFs0NDxXRCVMmC18p3NLKkk3SU+kqjzuOQyUiz9KTl4+ZOUDBRNcPGWnwuT5DIKdv6kYvywj0LjPw==",
       "type": "package",
-      "path": "microsoft.net.native.sharedlibrary-x86/1.6.0",
+      "path": "microsoft.net.native.sharedlibrary-x86/1.6.1",
       "files": [
         "build/Microsoft.Net.Native.SharedLibrary-x86.props",
         "build/Microsoft.Net.Native.SharedLibrary-x86.targets",
-        "microsoft.net.native.sharedlibrary-x86.1.6.0.nupkg.sha512",
+        "microsoft.net.native.sharedlibrary-x86.1.6.1.nupkg.sha512",
         "microsoft.net.native.sharedlibrary-x86.nuspec",
         "tools/SharedLibrary/chk/AnalysisILToc/System.Collections.Concurrent.iltoc",
         "tools/SharedLibrary/chk/AnalysisILToc/System.Collections.Concurrent.iltocpdb",
@@ -20546,7 +20623,6 @@
         "tools/SharedLibrary/chk/Native/Microsoft.NET.Native.Framework.Debug.1.6.appx",
         "tools/SharedLibrary/chk/Native/SharedLibrary.dll",
         "tools/SharedLibrary/chk/Native/SharedLibrary.pdb",
-        "tools/SharedLibrary/chk/Native/SharedLibrary.pdb.srcsrv.txt",
         "tools/SharedLibrary/chk/ResW/FxResources.System.Collections.Concurrent.SR.resw",
         "tools/SharedLibrary/chk/ResW/FxResources.System.Collections.SR.resw",
         "tools/SharedLibrary/chk/ResW/FxResources.System.Diagnostics.Tracing.SR.resw",
@@ -20925,14 +21001,14 @@
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.UniversalWindowsPlatform/5.3.2": {
-      "sha512": "bkCwDauf84lNL4BOXwa6+LWmimtAroK9TtdTrAlrMU4q0RipFnMx1mIpQBVZ9tqc6fD2B8BaqoqDRFlodcF6TA==",
+    "Microsoft.NETCore.UniversalWindowsPlatform/5.3.3": {
+      "sha512": "aCy8WhdcWqIl+gUoY905OWPCP1NqVOtT4Oejn7SIZb9KPKkB5cUfvLEmsY3xwud0TIaJaExKTUhrFluzKtSblQ==",
       "type": "package",
-      "path": "microsoft.netcore.universalwindowsplatform/5.3.2",
+      "path": "microsoft.netcore.universalwindowsplatform/5.3.3",
       "files": [
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
-        "microsoft.netcore.universalwindowsplatform.5.3.2.nupkg.sha512",
+        "microsoft.netcore.universalwindowsplatform.5.3.3.nupkg.sha512",
         "microsoft.netcore.universalwindowsplatform.nuspec"
       ]
     },
@@ -21064,6 +21140,23 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+    "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "sha512": "LfzU68PVP33nqsuSlO5xAYuoI/itVKz4VVJSIunrS7iqqxE3sy0Q+VvtoYnFcBAoGnY83ZVn8Mnc9HYqOBiPmg==",
+      "type": "package",
+      "path": "microsoft.xaml.behaviors.uwp.managed/2.0.0",
+      "files": [
+        "Microsoft.Xaml.Behaviors.Uwp.Managed.2.0.0.nupkg.sha512",
+        "Microsoft.Xaml.Behaviors.Uwp.Managed.nuspec",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactions.Design.dll",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactivity.Design.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.pri",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.xml",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.pri",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.xml"
+      ]
+    },
     "NETStandard.Library/1.6.1": {
       "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "type": "package",
@@ -21102,14 +21195,14 @@
         "tools/install.ps1"
       ]
     },
-    "PortableWebDavLibrary/0.8.2": {
-      "sha512": "EKfWK6DwSpeukYoA9qt7J4MIlxujJQxInihvqpuCqi8lN+BJkWecCe9n46IpoekjGRokcK7jHSZIHovidttoAA==",
+    "PortableWebDavLibrary/1.0.0": {
+      "sha512": "/N+0u+6jbNQjmdfWHsc1zgqtQyiyXN1Xte75q2hScKStJK38j+HGYM6Ym0rXnhWIxfVL/aa9wcjvvPZfwIjcDQ==",
       "type": "package",
-      "path": "portablewebdavlibrary/0.8.2",
+      "path": "portablewebdavlibrary/1.0.0",
       "files": [
         "lib/netstandard1.1/DecaTec.WebDav.XML",
         "lib/netstandard1.1/DecaTec.WebDav.dll",
-        "portablewebdavlibrary.0.8.2.nupkg.sha512",
+        "portablewebdavlibrary.1.0.0.nupkg.sha512",
         "portablewebdavlibrary.nuspec"
       ]
     },
@@ -24096,10 +24189,10 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "System.Net.Http/4.3.1": {
-      "sha512": "UrTyRczM3ZvNk6oetBuwlu67MFKKRva+r7bw4JDVZ6Y2IukyZ24td5ppsieu/4yZlogVAIuZul9GIQ3hoiz0yA==",
+    "System.Net.Http/4.3.2": {
+      "sha512": "y7hv0o0weI0j0mvEcBOdt1F3CAADiWlcw3e54m8TfYiRmBPDIsHElx8QUPDlY4x6yWXKPGN0Z2TuXCTPgkm5WQ==",
       "type": "package",
-      "path": "system.net.http/4.3.1",
+      "path": "system.net.http/4.3.2",
       "files": [
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
@@ -24119,49 +24212,9 @@
         "ref/monotouch10/_._",
         "ref/net45/_._",
         "ref/net46/System.Net.Http.dll",
-        "ref/net46/System.Net.Http.xml",
-        "ref/net46/de/System.Net.Http.xml",
-        "ref/net46/es/System.Net.Http.xml",
-        "ref/net46/fr/System.Net.Http.xml",
-        "ref/net46/it/System.Net.Http.xml",
-        "ref/net46/ja/System.Net.Http.xml",
-        "ref/net46/ko/System.Net.Http.xml",
-        "ref/net46/ru/System.Net.Http.xml",
-        "ref/net46/zh-hans/System.Net.Http.xml",
-        "ref/net46/zh-hant/System.Net.Http.xml",
         "ref/netcore50/System.Net.Http.dll",
-        "ref/netcore50/System.Net.Http.xml",
-        "ref/netcore50/de/System.Net.Http.xml",
-        "ref/netcore50/es/System.Net.Http.xml",
-        "ref/netcore50/fr/System.Net.Http.xml",
-        "ref/netcore50/it/System.Net.Http.xml",
-        "ref/netcore50/ja/System.Net.Http.xml",
-        "ref/netcore50/ko/System.Net.Http.xml",
-        "ref/netcore50/ru/System.Net.Http.xml",
-        "ref/netcore50/zh-hans/System.Net.Http.xml",
-        "ref/netcore50/zh-hant/System.Net.Http.xml",
         "ref/netstandard1.1/System.Net.Http.dll",
-        "ref/netstandard1.1/System.Net.Http.xml",
-        "ref/netstandard1.1/de/System.Net.Http.xml",
-        "ref/netstandard1.1/es/System.Net.Http.xml",
-        "ref/netstandard1.1/fr/System.Net.Http.xml",
-        "ref/netstandard1.1/it/System.Net.Http.xml",
-        "ref/netstandard1.1/ja/System.Net.Http.xml",
-        "ref/netstandard1.1/ko/System.Net.Http.xml",
-        "ref/netstandard1.1/ru/System.Net.Http.xml",
-        "ref/netstandard1.1/zh-hans/System.Net.Http.xml",
-        "ref/netstandard1.1/zh-hant/System.Net.Http.xml",
         "ref/netstandard1.3/System.Net.Http.dll",
-        "ref/netstandard1.3/System.Net.Http.xml",
-        "ref/netstandard1.3/de/System.Net.Http.xml",
-        "ref/netstandard1.3/es/System.Net.Http.xml",
-        "ref/netstandard1.3/fr/System.Net.Http.xml",
-        "ref/netstandard1.3/it/System.Net.Http.xml",
-        "ref/netstandard1.3/ja/System.Net.Http.xml",
-        "ref/netstandard1.3/ko/System.Net.Http.xml",
-        "ref/netstandard1.3/ru/System.Net.Http.xml",
-        "ref/netstandard1.3/zh-hans/System.Net.Http.xml",
-        "ref/netstandard1.3/zh-hant/System.Net.Http.xml",
         "ref/portable-net45+win8+wpa81/_._",
         "ref/win8/_._",
         "ref/wpa81/_._",
@@ -24172,7 +24225,7 @@
         "runtimes/win/lib/net46/System.Net.Http.dll",
         "runtimes/win/lib/netcore50/System.Net.Http.dll",
         "runtimes/win/lib/netstandard1.3/System.Net.Http.dll",
-        "system.net.http.4.3.1.nupkg.sha512",
+        "system.net.http.4.3.2.nupkg.sha512",
         "system.net.http.nuspec"
       ]
     },
@@ -27541,9 +27594,11 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.Bcl.Build >= 1.0.21",
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.3.2",
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.3.3",
       "Microsoft.Toolkit.Uwp.Notifications >= 1.4.1",
+      "Microsoft.Xaml.Behaviors.Uwp.Managed >= 2.0.0",
       "Newtonsoft.Json >= 10.0.2",
+      "PortableWebDavLibrary >= 1.0.0",
       "Prism.Unity >= 6.3.0",
       "QueryString.NET >= 1.0.0",
       "SQLite.Net-PCL >= 3.1.1"
@@ -27578,9 +27633,11 @@
     },
     "dependencies": {
       "Microsoft.Bcl.Build": "1.0.21",
-      "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.2",
+      "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
       "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
+      "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0",
       "Newtonsoft.Json": "10.0.2",
+      "PortableWebDavLibrary": "1.0.0",
       "Prism.Unity": "6.3.0",
       "QueryString.NET": "1.0.0",
       "SQLite.Net-PCL": "3.1.1"

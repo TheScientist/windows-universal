@@ -12,6 +12,7 @@ using System.Diagnostics;
 using DecaTec.WebDav;
 using Windows.Storage;
 using NextcloudAppLib.Services;
+using NextcloudClient.Exceptions;
 
 namespace NextcloudApp.Services
 {
@@ -569,7 +570,7 @@ namespace NextcloudApp.Services
             CachedFileManager.DeferUpdates(localFile);
             var properties = await localFile.GetBasicPropertiesAsync();
             long BytesTotal = (long)properties.Size;
-            {
+            try {
 
                 using (var stream = await localFile.OpenAsync(FileAccessMode.Read))
                 {
@@ -579,10 +580,14 @@ namespace NextcloudApp.Services
                     result = await client.Upload(path, targetStream, localFile.ContentType, progress, _cts.Token);
                 }
             }
-            catch (ResponseError e2)
+            catch (Exception e2)
             {
-                ResponseErrorHandlerService.HandleException(e2);
+                return false;
             }
+            //catch (ResponseError e2)
+            //{
+            //   ResponseErrorHandlerService.HandleException(e2);
+            //}
 
             // Let Windows know that we're finished changing the file so
             // the other app can update the remote version of the file.
