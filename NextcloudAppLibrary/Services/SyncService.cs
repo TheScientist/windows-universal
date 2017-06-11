@@ -13,7 +13,7 @@ using Windows.Storage;
 using NextcloudAppLib.Services;
 using NextcloudClient.Exceptions;
 using NextcloudApp.Constants;
-using Prism.Windows.AppModel;
+using Windows.ApplicationModel.Resources;
 
 namespace NextcloudApp.Services
 {
@@ -24,20 +24,20 @@ namespace NextcloudApp.Services
         private readonly ResourceInfo _resourceInfo;
         private NextcloudClient.NextcloudClient _client;
         private readonly List<SyncInfoDetail> _sidList;
-        private readonly IResourceLoader _resourceLoader;
+        private readonly ResourceLoader _resourceLoader;
 
-        public SyncService(StorageFolder startFolder, ResourceInfo resourceInfo, FolderSyncInfo syncInfo, IResourceLoader resourceLoader)
+        public SyncService(StorageFolder startFolder, ResourceInfo resourceInfo, FolderSyncInfo syncInfo)
         {
             _baseFolder = startFolder;
             _folderSyncInfo = syncInfo;
             _resourceInfo = resourceInfo;
-            _resourceLoader = resourceLoader;
+            _resourceLoader = new ResourceLoader();
             _sidList = new List<SyncInfoDetail>();
         }
 
         public async Task<bool> StartSync(bool inBackground)
         {
-            if (!SyncDbUtils.LockFolderSyncInfo(folderSyncInfo, inBackground))
+            if (!SyncDbUtils.LockFolderSyncInfo(_folderSyncInfo, inBackground))
             {
                 return false;
             }
@@ -116,7 +116,7 @@ namespace NextcloudApp.Services
             }
             finally
             {
-                SyncDbUtils.UnlockFolderSyncInfo(folderSyncInfo, inBackground);
+                SyncDbUtils.UnlockFolderSyncInfo(_folderSyncInfo, inBackground);
             }
         }
 
@@ -130,6 +130,7 @@ namespace NextcloudApp.Services
             var sid = SyncDbUtils.GetSyncInfoDetail(resourceInfo, _folderSyncInfo);
             sid.Error = null;
             var changesCount = 0;
+            List<Task<int>> syncTasks = new List<Task<int>>();
             try
             {
                 Debug.WriteLine("Sync folder " + resourceInfo.Path + ":" + folder.Path);
@@ -143,7 +144,8 @@ namespace NextcloudApp.Services
                 }
                 catch (ResponseError e)
                 {
-                    ResponseErrorHandlerService.HandleException(e);
+                    // TODO
+                    //ResponseErrorHandlerService.HandleException(e);
                 }
 
                 var synced = new List<IStorageItem>();
