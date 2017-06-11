@@ -100,8 +100,8 @@
             using (var db = DbConnection)
             {
                 return (from sid in db.Table<SyncInfoDetail>()
-                                    where sid.FsiID == folderSyncInfo.Id 
-                                    && (sid.ConflictType != ConflictType.NONE 
+                                    where sid.FsiId == folderSyncInfo.Id 
+                                    && (sid.ConflictType != ConflictType.None 
                                     || sid.Error != null)
                         select sid).Count();
             }
@@ -224,7 +224,7 @@
             using (var db = DbConnection)
             {
                 SyncInfoDetail sid = (from detail in db.Table<SyncInfoDetail>()
-                                      where detail.Path == fullPath && detail.FsiID == fsi.Id
+                                      where detail.Path == fullPath && detail.FsiId == fsi.Id
                                       select detail).FirstOrDefault();
                 return sid;
             }
@@ -255,7 +255,7 @@
             using (var db = DbConnection)
             {
                 SyncInfoDetail sid = (from detail in db.Table<SyncInfoDetail>()
-                                      where detail.FilePath == file.Path && detail.FsiID == fsi.Id
+                                      where detail.FilePath == file.Path && detail.FsiId == fsi.Id
                                       select detail).FirstOrDefault();
                 return sid;
             }
@@ -266,7 +266,7 @@
             using (var db = DbConnection)
             {
                 IEnumerable<SyncInfoDetail> sidList = (from detail in db.Table<SyncInfoDetail>()
-                                      where detail.FsiID == fsi.Id
+                                      where detail.FsiId == fsi.Id
                                       select detail);
                 return sidList.ToList();
             }
@@ -277,7 +277,7 @@
             using (var db = DbConnection)
             {
                 IEnumerable<SyncInfoDetail> sidList = (from detail in db.Table<SyncInfoDetail>()
-                                                       where detail.ConflictType != ConflictType.NONE
+                                                       where detail.ConflictType != ConflictType.None
                                                        select detail);
                 return sidList.ToList();
             }
@@ -290,7 +290,7 @@
                 if (isFolder)
                 {
                     // Including subpaths
-                    db.Execute("DELETE FROM SyncInfoDetail WHERE Path LIKE '?%' AND FsiID = ?", sid.Path, sid.FsiID);
+                    db.Execute("DELETE FROM SyncInfoDetail WHERE Path LIKE '?%' AND FsiID = ?", sid.Path, sid.FsiId);
                 } else
                 {
                     db.Delete(sid);

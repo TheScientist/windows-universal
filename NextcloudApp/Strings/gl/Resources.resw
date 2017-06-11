@@ -118,96 +118,96 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllFiles" xml:space="preserve">
-    <value>Alle filer</value>
+    <value>Todos os ficheiros</value>
   </data>
   <data name="Always" xml:space="preserve">
-    <value>Alltid</value>
+    <value>Sempre</value>
   </data>
   <data name="AnErrorHasOccurred" xml:space="preserve">
-    <value>En feil oppstod</value>
+    <value>Produciuse un erro</value>
   </data>
   <data name="AppBarAdd.Label" xml:space="preserve">
-    <value>Legg til</value>
+    <value>Engadir</value>
   </data>
   <data name="AppBarAdd_Flyout_CreateFolder.Text" xml:space="preserve">
-    <value>Opprett mappe</value>
+    <value>Crear un cartafol</value>
   </data>
   <data name="AppBarAdd_Flyout_TakePicture.Text" xml:space="preserve">
-    <value>Ta bilde</value>
+    <value>Tirar unha foto</value>
   </data>
   <data name="AppBarAdd_Flyout_UploadFiles.Text" xml:space="preserve">
-    <value>Last opp filer</value>
+    <value>Enviar ficheiros</value>
   </data>
   <data name="AppBarAdd_Flyout_UploadPhotos.Text" xml:space="preserve">
-    <value>Last opp bilder</value>
+    <value>Enviar fotos</value>
   </data>
   <data name="AppBarDownload.Label" xml:space="preserve">
-    <value>Last ned</value>
+    <value>Descargar</value>
   </data>
   <data name="AppBarRefresh.Label" xml:space="preserve">
-    <value>Oppdater</value>
+    <value>Actualizar</value>
   </data>
   <data name="AppBarSort.Label" xml:space="preserve">
-    <value>Sorter</value>
+    <value>Ordenar</value>
   </data>
   <data name="AppBarSort_Flyout_ByDateASC" xml:space="preserve">
-    <value>Dato (eldste først)</value>
+    <value>Data (máis antigo ao principio)</value>
   </data>
   <data name="AppBarSort_Flyout_ByDateDESC" xml:space="preserve">
-    <value>Dato (nyeste først)</value>
+    <value>Data (máis recente ao principio)</value>
   </data>
   <data name="AppBarSort_Flyout_ByNameASC" xml:space="preserve">
-    <value>Navn (A først)</value>
+    <value>Nome (A - Z)</value>
   </data>
   <data name="AppBarSort_Flyout_ByNameDESC" xml:space="preserve">
-    <value>Navn (Å først)</value>
+    <value>Nome (Z -A)</value>
   </data>
   <data name="AppBarSort_Flyout_BySizeASC" xml:space="preserve">
-    <value>Størrelse (minste først)</value>
+    <value>Tamaño (de menor a maior)</value>
   </data>
   <data name="AppBarSort_Flyout_BySizeDESC" xml:space="preserve">
-    <value>Størrelse (største først)</value>
+    <value>Tamaño (de maior a menor)</value>
   </data>
   <data name="AppBarSort_Flyout_ByTypeASC" xml:space="preserve">
-    <value>Type (A først)</value>
+    <value>Tipo (A arriba)</value>
   </data>
   <data name="AppBarSort_Flyout_ByTypeDESC" xml:space="preserve">
-    <value>Type (Å først)</value>
+    <value>Tipo (Z arriba)</value>
   </data>
   <data name="ApplicationError" xml:space="preserve">
-    <value>Programfeil</value>
+    <value>Produciuse un erro da aplicación</value>
   </data>
   <data name="ApplicationError_Description" xml:space="preserve">
-    <value>Programmet har fått et problem. Vi beklager ulempene dette medfører. Hvis du var midt i et arbeid, har dette forsvunnet.
+    <value>A  aplicación atopou un problema. Pedímoslle desculpas polos inconvenientes. Se estaba a traballar en algo, a información na que estaba traballando perdeuse.
 
-Vil du sende utviklerne den klargjorte feilrapporten? Dette vil hjelpe med å løse problemet raskere.</value>
+Quere informar aos desenvolvedores da aplicación e enviar o informe de fallos preparado? Isto axuda a solucionar máis rapidamente o problema.</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Avbryt</value>
+    <value>Cancelar</value>
   </data>
   <data name="CanNotCreateFolder" xml:space="preserve">
-    <value>Kan ikke opprette mappe</value>
+    <value>Non é posíbel crear o cartafol</value>
   </data>
   <data name="Connect.Content" xml:space="preserve">
-    <value>Koble til</value>
+    <value>Conectar</value>
   </data>
   <data name="ContentType.Text" xml:space="preserve">
-    <value>Innholdstype</value>
+    <value>Tipo de contido</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Opprett</value>
+    <value>Crear</value>
   </data>
   <data name="Created.Text" xml:space="preserve">
-    <value>Opprettet</value>
+    <value>Creado</value>
   </data>
   <data name="CreateNewFolder" xml:space="preserve">
-    <value>Opprett en ny mappe</value>
+    <value>Crear un cartafol novo</value>
   </data>
   <data name="DownloadingTheFile.Text" xml:space="preserve">
-    <value>Last ned filen...</value>
+    <value>Descargando o ficheiro</value>
   </data>
   <data name="DownloadPreviewImages.Header" xml:space="preserve">
-    <value>Last ned forhåndsvisningsbildene</value>
+    <value>Descargando vistas previas das imaxes</value>
   </data>
   <data name="ETag.Text" xml:space="preserve">
     <value>ETag</value>
@@ -216,427 +216,427 @@ Vil du sende utviklerne den klargjorte feilrapporten? Dette vil hjelpe med å l�
     <value>{0} ({1} byte)</value>
   </data>
   <data name="FolderNeme" xml:space="preserve">
-    <value>Mappenavn</value>
+    <value>Nome do cartafol</value>
   </data>
   <data name="Information.Text" xml:space="preserve">
-    <value>Informasjon</value>
+    <value>Información</value>
   </data>
   <data name="LastModified.Text" xml:space="preserve">
-    <value>Sist endret</value>
+    <value>Última modificación</value>
   </data>
   <data name="Name.Text" xml:space="preserve">
-    <value>Navn</value>
+    <value>Nome</value>
   </data>
   <data name="Never" xml:space="preserve">
-    <value>Aldri</value>
+    <value>Nunca</value>
   </data>
   <data name="NewFolder" xml:space="preserve">
-    <value>Ny mappe</value>
+    <value>Novo cartafol</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>Nei</value>
+    <value>Non</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
-    <value>Uautorisert</value>
+    <value>Non autorizado</value>
   </data>
   <data name="NotAuthorized_Description" xml:space="preserve">
-    <value>Tjeneren returnerte an feilkode 401 (Uautorisert). Vennligst logg inn på nytt.</value>
+    <value>O servidor devolveu un código de erro 401 (Non autorizado). Acceda de novo.</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>OK</value>
+    <value>Aceptar</value>
   </data>
   <data name="Password.Header" xml:space="preserve">
-    <value>Passord</value>
+    <value>Password</value>
   </data>
   <data name="Path.Text" xml:space="preserve">
-    <value>Sti</value>
+    <value>Ruta</value>
   </data>
   <data name="QuotaUsedOfTotal" xml:space="preserve">
-    <value>{0} av {1} brukt</value>
+    <value>{0} de {1} usados</value>
   </data>
   <data name="ReseTthisApp.Content" xml:space="preserve">
-    <value>Nullstill denne appen</value>
+    <value>Restabelecer esta aplicación</value>
   </data>
   <data name="Retry" xml:space="preserve">
-    <value>Prøv igjen</value>
+    <value>Tentar de novo</value>
   </data>
   <data name="ServerAddress.Header" xml:space="preserve">
-    <value>Tjeneradresse</value>
+    <value>Enderezo do servidor</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Innstillinger</value>
+    <value>Axustes</value>
   </data>
   <data name="Settings2.Text" xml:space="preserve">
-    <value>Innstillinger</value>
+    <value>Axustes</value>
   </data>
   <data name="ShowGrouping.Header" xml:space="preserve">
-    <value>Vis fil- og mappelistegruppering</value>
+    <value>Amosar agrupada a lista de ficheiros e cartafoles</value>
   </data>
   <data name="Size.Text" xml:space="preserve">
-    <value>Størrelse</value>
+    <value>Tamaño</value>
   </data>
   <data name="SpecifyDifferentName" xml:space="preserve">
-    <value>Det finnes allerede et element med dette navnet. Angi et annet navn.</value>
+    <value>Xa existe un elemento con este nome. Especifique un nome diferente.</value>
   </data>
   <data name="Type.Text" xml:space="preserve">
-    <value>Type</value>
+    <value>Tipo</value>
   </data>
   <data name="Username.Header" xml:space="preserve">
-    <value>Brukernavn</value>
+    <value>Nome de usuario</value>
   </data>
   <data name="Version" xml:space="preserve">
-    <value>Versjon {0}</value>
+    <value>Versión {0}</value>
   </data>
   <data name="WiFiOnly" xml:space="preserve">
-    <value>Bare når jeg er på Wi-Fi</value>
+    <value>Só cando estea conectado por WiFi</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Ja</value>
+    <value>Si</value>
   </data>
   <data name="Delete_Text.Text" xml:space="preserve">
-    <value>Slett</value>
+    <value>Eliminar</value>
   </data>
   <data name="DeleteFile" xml:space="preserve">
-    <value>Slett fil</value>
+    <value>Eliminar ficheiro</value>
   </data>
   <data name="DeleteFile_Description" xml:space="preserve">
-    <value>Er du sikker på at du vil slette filen {0}</value>
+    <value>Confirma que quere eliminar o ficheiro {0}?</value>
   </data>
   <data name="DeleteFolder" xml:space="preserve">
-    <value>Slett mappe</value>
+    <value>Eliminar o cartafol</value>
   </data>
   <data name="DeleteFolder_Description" xml:space="preserve">
-    <value>Er du sikker på at du vil slette mappen {0}</value>
+    <value>Confirma que quere eliminar o cartafol {0}?</value>
   </data>
   <data name="UploadingFileProgress" xml:space="preserve">
-    <value>{0} av {1} lastet opp</value>
+    <value>{0} de {1} enviados</value>
   </data>
   <data name="UploadingFiles" xml:space="preserve">
-    <value>Laster opp fil {0} av {1}…</value>
+    <value>Enviando o ficheiro {0} de {1}…</value>
   </data>
   <data name="UploadingTheFile.Text" xml:space="preserve">
-    <value>Laster opp filen...</value>
+    <value>Enviando o ficheiro…</value>
   </data>
   <data name="DownloadingFileProgress" xml:space="preserve">
-    <value>{0} av {1} lastet ned</value>
+    <value>{0} de {1} descargados</value>
   </data>
   <data name="Auth_MaintenanceEnabled" xml:space="preserve">
-    <value>Vedlikeholdsmodus er aktivert på tjeneren.</value>
+    <value>Activouse o modo de mantemento no servidor.</value>
   </data>
   <data name="Auth_Unauthorized" xml:space="preserve">
-    <value>Feil brukernavn eller passord.</value>
+    <value>Nome de usuario ou contrasinal incorrecto</value>
   </data>
   <data name="ClientVersion" xml:space="preserve">
-    <value>Klientversjon {0}</value>
+    <value>Versión do cliente {0}</value>
   </data>
   <data name="ServerNameOrAddressCouldNotBeResolved" xml:space="preserve">
-    <value>Tjeneradressen ble ikke funnet.</value>
+    <value>Non puido resolverse o nome do servidor ou o enderezo.</value>
   </data>
   <data name="ServerVersion" xml:space="preserve">
-    <value>Tjenerversjon {0}</value>
+    <value>Versión do servidor {0}</value>
   </data>
   <data name="Delete_Label.Label" xml:space="preserve">
-    <value>Slett</value>
+    <value>Eliminar</value>
   </data>
   <data name="WaitingForServerResponse.Text" xml:space="preserve">
-    <value>venter på svar fra tjener</value>
+    <value>agardando resposta do servidor</value>
   </data>
   <data name="ChooseANewName" xml:space="preserve">
-    <value>Vennligst velg et nytt navn</value>
+    <value>Escolla un nome novo</value>
   </data>
   <data name="Rename" xml:space="preserve">
-    <value>Gi nytt navn</value>
+    <value>Renomear</value>
   </data>
   <data name="Rename_Label.Label" xml:space="preserve">
-    <value>Gi nytt navn</value>
+    <value>Renomear</value>
   </data>
   <data name="Rename_Text.Text" xml:space="preserve">
-    <value>Gi nytt navn</value>
+    <value>Renomear</value>
   </data>
   <data name="MoveTo_Label.Label" xml:space="preserve">
-    <value>Flytt til</value>
+    <value>Mover a</value>
   </data>
   <data name="MoveTo_Text.Text" xml:space="preserve">
-    <value>Flytt ti</value>
+    <value>Mover a</value>
   </data>
   <data name="AppBarCancel.Label" xml:space="preserve">
-    <value>Avbryt</value>
+    <value>Cancelar</value>
   </data>
   <data name="AppBarDone.Label" xml:space="preserve">
-    <value>Ferdig</value>
+    <value>Feito</value>
   </data>
   <data name="ChooseFolderListView_Header.Header" xml:space="preserve">
-    <value>Velg mappe</value>
+    <value>Escoller cartafol</value>
   </data>
   <data name="ServerWithGivenAddressIsNotReachable" xml:space="preserve">
-    <value>Tjeneren med adressen {0} kan ikke nås.</value>
+    <value>Non é posíbel acadar o servidor co enderezo {0}.</value>
   </data>
   <data name="DownloadAsZip.Text" xml:space="preserve">
-    <value>Last ned ZIP- fil</value>
+    <value>Descargar como ficheiro ZIP</value>
   </data>
   <data name="DownloadingFileProgressIndeterminate" xml:space="preserve">
-    <value>{0} lastet ned</value>
+    <value>{0} descargado</value>
   </data>
   <data name="VerificationService_Prompt" xml:space="preserve">
-    <value>For å få tilgang til din Nextcloud, angi påloggingsinformasjon for enheten.</value>
+    <value>Para acceder ao seu Nextcloud, forneza a información de autenticaión do seu dispositivo.</value>
   </data>
   <data name="UseWindowsHello.Header" xml:space="preserve">
-    <value>Windows Hello autentisering</value>
+    <value>Autenticación de Windows Hello</value>
   </data>
   <data name="WindowsHelloNotAvailable" xml:space="preserve">
-    <value>Ingen PIN er satt for denne enheten. For å bruke Windows Hello må du angi en PIN</value>
+    <value>Non foi establecido un PIN para este dispositivo. Para poder usar Windows Hello, necesitase un PIN definido.</value>
   </data>
   <data name="Download.Text" xml:space="preserve">
-    <value>Last ned</value>
+    <value>Descargar</value>
   </data>
   <data name="DialogTitle_GeneralNextCloudApp" xml:space="preserve">
     <value>Nextcloud</value>
   </data>
   <data name="DialogTitle_SignInRequired" xml:space="preserve">
-    <value>Innlogging er nødvendig</value>
+    <value>Requírese autenticación</value>
   </data>
   <data name="SignInRequiredMessage" xml:space="preserve">
-    <value>Vi kan ikke åpne Nextcloud før du oppgir din påloggingsinformasjonen for enheten.</value>
+    <value>Non é posíbel abrir o Nextcloud ata que forneza a información de autenticación do seu dispositivo.</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
-    <value>Prøv igjen</value>
+    <value>Ténteo de novo</value>
   </data>
   <data name="Changes_AppName" xml:space="preserve">
-    <value>Nextcloud for Windows Mobile</value>
+    <value>Nextcloud para Windows Mobile</value>
   </data>
   <data name="Changes_Intro_Line_1" xml:space="preserve">
-    <value>Appen din ble oppdatert til versjon {0}</value>
+    <value>A súa aplicación foi actualizada á versión {0}</value>
   </data>
   <data name="Changes_Intro_Line_2" xml:space="preserve">
-    <value>Nye funksjoner og forbedringer i denne versjonen:</value>
+    <value>Novas funcionalidades e melloras nesta versión:</value>
   </data>
   <data name="Changes_Recommend" xml:space="preserve">
-    <value>Anbefal</value>
+    <value>Recomendado</value>
   </data>
   <data name="Changes_Title" xml:space="preserve">
-    <value>Oppdater</value>
+    <value>Actualizar</value>
   </data>
   <data name="Changes_version_1-1-0" xml:space="preserve">
-    <value>• Flytt filer og mapper
-• Gi filer og mapper nye navn
-• Manuell synkronisering av mapper
-• Last ned mapper som ZIP-fil 
-• Velg flere filer og mapper
-• Fest filer og mapper til startskjermen
-• Vis Windows Hello for å autentisere ved programstart
-• Tillat selvsignerte SSL-sertifikater
-• Vis mappestørrelse i liste
-• Del filer med programmet
-• Bruk PasswordVault for å lagre brukeridentifikasjon
-• Sikkerhetsforbedringer og feilrettinger
-• Nytt og mer stabilt WebDAV-bibliotek</value>
+    <value>• Mover ficheiros e cartafoles 
+• Renomear ficheiros e cartafoles 
+• Sincronización manual dos cartafoles 
+• Descargar directorios como un arquivo .zip 
+• Seleccionar múltiples ficheiros e cartafoles 
+• Ancorar ficheiros e cartafoles á pantalla de inicio 
+• Usar Windows Hello para autenticar ao acceder á aplicación 
+• Permitir certificados SSL auto asinados 
+• Amosar o tamaño dos cartafoles en lista 
+• Compartir ficheiros coa aplicación 
+• Usar a bóveda de contrasinais para almacenar credenciais de usuario 
+• Melloras de seguridade e corrección de fallas 
+• Unha nova e máis estábel biblioteca WebDAV</value>
   </data>
   <data name="AppBarPinToStart.Label" xml:space="preserve">
-    <value>Fest til start</value>
+    <value>Ancorar ao inicio</value>
   </data>
   <data name="PinToStart.Text" xml:space="preserve">
-    <value>Fest til start</value>
+    <value>Ancorar ao inicio</value>
   </data>
   <data name="Connect2" xml:space="preserve">
-    <value>Koble til</value>
+    <value>Conectar</value>
   </data>
   <data name="IgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
-    <value>Ignorer ugyldige selvsignerte SSL-sertifikater</value>
+    <value>Ignorar os certificados SSL auto asinados incorrectos</value>
   </data>
   <data name="ExpertMode.Header" xml:space="preserve">
-    <value>Ekspertmodus</value>
+    <value>Modo experto</value>
   </data>
   <data name="SynchronizationStatus.Header" xml:space="preserve">
-    <value>Synkroniseringsstatus</value>
+    <value>Estado da sincronización</value>
   </data>
   <data name="SynchronizationHistory.Header" xml:space="preserve">
-    <value>Historikk</value>
+    <value>Historial</value>
   </data>
   <data name="SynchronizationConflicts.Header" xml:space="preserve">
-    <value>Konflikter</value>
+    <value>Conflitos</value>
   </data>
   <data name="SynchronizationErrors.Header" xml:space="preserve">
-    <value>Feil</value>
+    <value>Erros</value>
   </data>
   <data name="Synchronize.Text" xml:space="preserve">
-    <value>Synkroniser</value>
+    <value>Sincronizar</value>
   </data>
   <data name="SyncFixConflictPreferLocal.Label" xml:space="preserve">
-    <value>Foretrekk lokal fil</value>
+    <value>Preferir o ficheiro local</value>
   </data>
   <data name="SyncClearHistory.Label" xml:space="preserve">
-    <value>Tøm synkroniseringshistorikk</value>
+    <value>Limpar o historial de sincronización</value>
   </data>
   <data name="SyncFixConflictPreferRemote.Label" xml:space="preserve">
-    <value>Foretrekk fil som ikke er lokal</value>
+    <value>Preferir o ficheiro remoto</value>
   </data>
   <data name="TheCertificateAuthorityIsInvalidOrIncorrect_ConnectAnyway" xml:space="preserve">
-    <value>Sertifikatet er ugyldig eller feil. Koble til uansett?
+    <value>A entidade de certificación é nula ou incorrecta. Aínda así quere conectar?
 
-Vær forsiktig, du vil ikke være beskyttet mot mann-i-midten (mim) angrep!</value>
+Teña coidado, de facelo arriscase a ter un ataque de «Home no medio» (Man-in-the-middle -mitm)!</value>
   </data>
   <data name="Attention_ExclamationMark" xml:space="preserve">
-    <value>OBS!</value>
+    <value>Atención!</value>
   </data>
   <data name="AppMustBeRestarted" xml:space="preserve">
-    <value>For at endringer skal tre i effekt, må programmet startes på nytt.</value>
+    <value>Para que estes axustes teñan efecto é necesario reiniciar a aplicación.</value>
   </data>
   <data name="Hint" xml:space="preserve">
-    <value>Hint</value>
+    <value>Consello</value>
   </data>
   <data name="SyncErrorHint_Header.Header" xml:space="preserve">
     <value>List of errors that occurred during synchronization. Those should be temporary issues (e.g. file has been opened by another app) and should be gone after the next synchronization run.</value>
   </data>
   <data name="SyncFoldersNotEmptyWarning" xml:space="preserve">
-    <value>Se opp for konflikter!</value>
+    <value>Coidado cos conflitos!</value>
   </data>
   <data name="SyncFoldersNotEmptyWarningDetail" xml:space="preserve">
-    <value>Både sentral og lokal mappe er ikke tom. Dette kan føre til konflikter, siden vi ikke vet hvilke filer som er de korrekte.</value>
+    <value>Tanto o cartafol local como o remoto non están baleiros. Isto pode xerar conflitos, porque non sabemos que ficheiros son os correctos.</value>
   </data>
   <data name="SyncStarted" xml:space="preserve">
-    <value>Synkronisering har blitt startet!</value>
+    <value>Iniciouse a sincronización!</value>
   </data>
   <data name="SyncStartedDetail" xml:space="preserve">
-    <value>Synkronisering foregår i bakgrunnen. Du vil få beskjed når den er ferdig.</value>
+    <value>A sincronización farase en segundo plano. Cando remate recibirá unha notificación.</value>
   </data>
   <data name="ServiceTemporarilyUnavailable" xml:space="preserve">
-    <value>Tjenesten er midlertidig utilgjengelig (vanligvis på grunn av litt vedlikehold).
-Vennligst prøv igjen senere.</value>
+    <value>Servizo temporalmente non dispoñíbel (xeralmente por mor de traballos de mantemento de corto prazo).
+Ténteo nun chisco.</value>
   </data>
   <data name="SyncConflictBothChanged" xml:space="preserve">
-    <value>Fil endret seg både sentralt og lokalt - hvilken er den korrekte?</value>
+    <value>O ficheiro cambiou local e remotamente. Cal prefire?</value>
   </data>
   <data name="SyncConflictBothNew" xml:space="preserve">
-    <value>Fil har blitt opprettet både sentralt og lokalt - hvilken er den korrekte?</value>
+    <value>O ficheiro foi creado local e remotamente, cal é o correcto?</value>
   </data>
   <data name="SyncConflictLocalDel" xml:space="preserve">
-    <value>Slettet fil lokalt, men endret sentralt - hva foretrekker du?</value>
+    <value>O ficheiro local foi eliminado mais o remoto foi modificado. Cal prefire?</value>
   </data>
   <data name="SyncConflictPrefix" xml:space="preserve">
-    <value>Konflikt:</value>
+    <value>Conflito</value>
   </data>
   <data name="SyncConflictRemoteDel" xml:space="preserve">
-    <value>Slettet fil sentralt, men endret lokalt. Hva foretrekker du?</value>
+    <value>O ficheiro remoto foi eliminado mais o local foi modificado. Cal prefire?</value>
   </data>
   <data name="SyncFinishedConflicts" xml:space="preserve">
-    <value>Synkronisering av mappe {0} ferdig med {1} endringer og {2} feil eller konflikter.</value>
+    <value>A sincronización do cartafol {0} rematou con {1} cambios e {2} erros ou conflctos.</value>
   </data>
   <data name="SyncFinishedSuccessful" xml:space="preserve">
-    <value>Synkronisering av mappe {0} ferdig med {1} endringer.</value>
+    <value>A sincronización do cartafol {0} rematou con {1} cambios.</value>
   </data>
   <data name="SyncFinishedTitle" xml:space="preserve">
-    <value>Synkronisering har blitt avsluttet.</value>
+    <value>Rematou a sincronización</value>
   </data>
   <data name="SyncSuspendedDescription" xml:space="preserve">
-    <value>Synkronisering av mappe {0} har blitt stoppet, fordi applikasjonen har blitt suspendert.</value>
+    <value>A sincronización do cartafol {0} detívose, por mor de que a aplicación foi suspendida.</value>
   </data>
   <data name="SyncSuspendedTitle" xml:space="preserve">
-    <value>Synkronisering utsatt</value>
+    <value>A sincronización foi suspendida</value>
   </data>
   <data name="SynchronizationPage" xml:space="preserve">
-    <value>Synkroniseringsstatus</value>
+    <value>Estado da sincronización</value>
   </data>
   <data name="SyncPathLocal.Text" xml:space="preserve">
-    <value>Local Path</value>
+    <value>Ruta local:</value>
   </data>
   <data name="SyncPathRemote.Text" xml:space="preserve">
-    <value>Nextcloud Path</value>
+    <value>Ruta do Nexcloud:</value>
   </data>
   <data name="ShareTargetListView_Header" xml:space="preserve">
-    <value>Velg mappen der du vil laste opp filene</value>
+    <value>Escolla o cartafol car o que quere enviar os ficheiros</value>
   </data>
   <data name="SynchronizationFolders.Header" xml:space="preserve">
-    <value>Mapper</value>
+    <value>Cartafoles</value>
   </data>
   <data name="DirectoryListStatusBarText" xml:space="preserve">
-    <value>Elementer: {0} (mapper: {1} filer: {2})</value>
+    <value>Elementos: {0} (cartafoles: {1} ficheiros: {2})</value>
   </data>
   <data name="HelpTextExpertMode" xml:space="preserve">
-    <value>Når eksportmodus er påskrudd, gir programmet noen ytterligere funksjoner/informasjon, som kanskje ikke er så interessant for alle brukere.</value>
+    <value>Ao activar o modo experto, a aplicación fornece algunhas funcionalidades e  informacións adicionais, isto pode interesarlle a todos os usuarios.</value>
   </data>
   <data name="HelpTextIgnoreInvalidSelfSignedSslCertificates" xml:space="preserve">
-    <value>Ignorer ugyldig selv-signerte SSL-sertifikater. Dette tillater bruk av ugyldige eller feil SSL sertifikater. Vær forsiktig, du vil ikke være beskyttet mot mann-i-midten (MIM) -angrep heretter.</value>
+    <value>Ignorar os certificados SSL auto asinados. Isto permite o uso de entidades de certificación SSL nulas ou incorrectas.  Teña coidado, de facelo arriscase a ter un ataque de «Home no medio» (Man-in-the-middle -mitm)!</value>
   </data>
   <data name="AppBarSyncThisFolder.Label" xml:space="preserve">
-    <value>Synkroniser denne mappen</value>
+    <value>Sincronizar este cartafol</value>
   </data>
   <data name="AppBarUnSyncThisFolder.Label" xml:space="preserve">
-    <value>Stopp synkronisering av denne mappen</value>
+    <value>Deter a sincronización deste cartafol</value>
   </data>
   <data name="StopSynchronize.Text" xml:space="preserve">
-    <value>Stopp synkronisering</value>
+    <value>Deter a sincronización</value>
   </data>
   <data name="SyncStatusPageHeader.Text" xml:space="preserve">
-    <value>Synkroniseringsstatus</value>
+    <value>Estado da sincronización</value>
   </data>
   <data name="SynchronizeNow" xml:space="preserve">
-    <value>Synkroniser nå</value>
+    <value>Sincronizar agora</value>
   </data>
   <data name="SynchronizeStart" xml:space="preserve">
-    <value>Synkroniser</value>
+    <value>Sincronizar</value>
   </data>
   <data name="SynchronizeThisFolderNow" xml:space="preserve">
-    <value>Synkroniser denne mappen nå</value>
+    <value>Sincronizar agora este cartafol</value>
   </data>
   <data name="SynchronizeThisFolderStart" xml:space="preserve">
-    <value>Synkroniser denne mappen</value>
+    <value>Sincronizar este cartafol</value>
   </data>
   <data name="ThemeDark" xml:space="preserve">
-    <value>Mørk</value>
+    <value>Escuro</value>
   </data>
   <data name="ThemeLight" xml:space="preserve">
-    <value>Lys</value>
+    <value>Craro</value>
   </data>
   <data name="ThemeSystem" xml:space="preserve">
-    <value>System</value>
+    <value>Sistema</value>
   </data>
   <data name="Theme" xml:space="preserve">
-    <value>Drakt</value>
+    <value>Tema</value>
   </data>
   <data name="SharingOut" xml:space="preserve">
-    <value>Delt med andre</value>
+    <value>Compartido con outros</value>
   </data>
   <data name="Favorites" xml:space="preserve">
-    <value>Favoritter</value>
+    <value>Favoritos</value>
   </data>
   <data name="SharingIn" xml:space="preserve">
-    <value>Delt med meg</value>
+    <value>Compartido comigo</value>
   </data>
   <data name="SharingLink" xml:space="preserve">
-    <value>Del via lenke</value>
+    <value>Compartido por ligazón</value>
   </data>
   <data name="PrepareForSharing" xml:space="preserve">
-    <value>Forbered for deling…</value>
+    <value>Preparando para compartir</value>
   </data>
   <data name="AppBarCreateFolder.Label" xml:space="preserve">
-    <value>Create folder</value>
+    <value>Crear cartafol</value>
   </data>
   <data name="SyncService_Error_CannotCreateClient" xml:space="preserve">
-    <value>Error while creating client for WebDAV communication</value>
+    <value>Produciuse un erro creando o cliente para a comunicación WebDAV</value>
   </data>
   <data name="SyncService_Error_CreateFolderRemotely" xml:space="preserve">
-    <value>Could not create directory &apos;{0}&apos; on Nextcloud.</value>
+    <value>Non foi posí­bel crear o cartafol &apos;{0}&apos; en Nextcloud.</value>
     <comment>{0} = the path to be created</comment>
   </data>
   <data name="SyncService_Error_DeleteFolderRemotely" xml:space="preserve">
-    <value>Deletion of &apos;{0}&apos; on Nextcloud failed.</value>
+    <value>Fallou a eliminación de &apos;{0}&apos; en Nextcloud.</value>
     <comment>{0} = the path to be deleted</comment>
   </data>
   <data name="SyncService_Error_DownloadFile" xml:space="preserve">
-    <value>Error while downloading file &apos;{0}&apos; from Nextcloud.</value>
+    <value>Produciuse un erro descargando o ficheiro &apos;{0}&apos; de Nextcloud.</value>
     <comment>{0} = file name</comment>
   </data>
   <data name="SyncService_Error_UploadFile" xml:space="preserve">
-    <value>Error while uploading file &apos;{0}&apos; to Nextcloud.</value>
+    <value>Produciuse un erro enviando o ficheiro &apos;{0}&apos; a Nextcloud.</value>
     <comment>{0} = file name</comment>
   </data>
   <data name="DoYouWantToOverwriteIt" xml:space="preserve">
-    <value>Vil du overskrive?</value>
+    <value>Quere sobrescribilo?</value>
   </data>
   <data name="FileAlreadyExists" xml:space="preserve">
-    <value>Filen finnes allerede</value>
+    <value>O ficheiro xa existe</value>
   </data>
   <data name="Overwrite" xml:space="preserve">
-    <value>Overskriv</value>
+    <value>Sobrescribir</value>
   </data>
 </root>

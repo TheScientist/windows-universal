@@ -1,10 +1,4 @@
-﻿using NextcloudClient.Types;
-using SQLite.Net.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite.Net.Attributes;
 
 namespace NextcloudApp.Models
 {
@@ -15,12 +9,6 @@ namespace NextcloudApp.Models
         public string Path { get; set; }
         public bool Active { get; set; }
         public bool BgActive { get; set; }
-        public string AccessListKey
-        {
-            get
-            {
-                return Path.Replace('/', '_');
-            }
-        }
+        public string AccessListKey => Path.Replace('/', '_');
     }
 }

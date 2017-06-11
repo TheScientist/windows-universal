@@ -482,7 +482,7 @@ Buďte opatrní, v tomto případě nebudete chráněni proti mitm útokům.</va
   <data name="Hint" xml:space="preserve">
     <value>Nápověda</value>
   </data>
-  <data name="SyncErrorHint.Text" xml:space="preserve">
+  <data name="SyncErrorHint_Header.Header" xml:space="preserve">
     <value>Seznam chyb, které vznikly při synchronizaci. Mělo by se jednat o dočasné problémy (např. soubor byl otevřen jinou aplikací), které by měli zmizet při příští synchronizaci.</value>
   </data>
   <data name="SyncFoldersNotEmptyWarning" xml:space="preserve">
@@ -535,10 +535,10 @@ Prosím zkuste to znovu později.</value>
     <value>Stav synchronizace</value>
   </data>
   <data name="SyncPathLocal.Text" xml:space="preserve">
-    <value>Místní cesta:</value>
+    <value>Local Path</value>
   </data>
   <data name="SyncPathRemote.Text" xml:space="preserve">
-    <value>Cesta Nextcloudu:</value>
+    <value>Nextcloud Path</value>
   </data>
   <data name="ShareTargetListView_Header" xml:space="preserve">
     <value>Zvolte složku, kam chcete soubory nahrát</value>
@@ -605,5 +605,36 @@ Prosím zkuste to znovu později.</value>
   </data>
   <data name="PrepareForSharing" xml:space="preserve">
     <value>Příprava sdílení...</value>
+  </data>
+  <data name="AppBarCreateFolder.Label" xml:space="preserve">
+    <value>Vytvořit složku</value>
+  </data>
+  <data name="SyncService_Error_CannotCreateClient" xml:space="preserve">
+    <value>Chyba při vytváření klienta pro WebDAV komunikaci</value>
+  </data>
+  <data name="SyncService_Error_CreateFolderRemotely" xml:space="preserve">
+    <value>Adresář {0} nemohl být v Nextcloudu vytvořen.</value>
+    <comment>{0} = the path to be created</comment>
+  </data>
+  <data name="SyncService_Error_DeleteFolderRemotely" xml:space="preserve">
+    <value>Mazání adresáře {0} v Nexcloudu selhalo.</value>
+    <comment>{0} = the path to be deleted</comment>
+  </data>
+  <data name="SyncService_Error_DownloadFile" xml:space="preserve">
+    <value>Chyba při stahování souboru {0} z Nextcloudu.</value>
+    <comment>{0} = file name</comment>
+  </data>
+  <data name="SyncService_Error_UploadFile" xml:space="preserve">
+    <value>Chyba při nahrávání souboru {0} do Nextcloudu.</value>
+    <comment>{0} = file name</comment>
+  </data>
+  <data name="DoYouWantToOverwriteIt" xml:space="preserve">
+    <value>Chcete položku přepsat?</value>
+  </data>
+  <data name="FileAlreadyExists" xml:space="preserve">
+    <value>Soubor již existuje</value>
+  </data>
+  <data name="Overwrite" xml:space="preserve">
+    <value>Přepsat</value>
   </data>
 </root>

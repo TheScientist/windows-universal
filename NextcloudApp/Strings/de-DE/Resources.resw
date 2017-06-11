@@ -484,8 +484,8 @@ Seien Sie bitte vorsichtig, Sie werden nicht mehr vor Man-in-the-Middle (mitm) A
   <data name="Hint" xml:space="preserve">
     <value>Hinweis</value>
   </data>
-  <data name="SyncErrorHint.Text" xml:space="preserve">
-    <value>Liste der bei der Synchronisation aufgetretenen Fehler. Es sollte sich um vorübergehende Fehler handeln (z.B. weil die Datei in einer anderen App geöffnet war) und mit der nächsten Synchronisation behoben sein.</value>
+  <data name="SyncErrorHint_Header.Header" xml:space="preserve">
+    <value>Liste der Fehler die bei der Synchronisierung aufgetreten sind. Es dürfte sich hierbei um vorübergehende Probleme handeln (z.B. weil eine Datei in einer anderen App geöffnet war) und sollte nach der nächsten Synchronisierung behoben sein.</value>
   </data>
   <data name="SyncFoldersNotEmptyWarning" xml:space="preserve">
     <value>Vorsicht vor Konflikten!</value>
@@ -537,10 +537,10 @@ Bitte später noch einmal versuchen.</value>
     <value>Synchronisations-Status</value>
   </data>
   <data name="SyncPathLocal.Text" xml:space="preserve">
-    <value>Lokaler Pfad:</value>
+    <value>Lokaler Pfad</value>
   </data>
   <data name="SyncPathRemote.Text" xml:space="preserve">
-    <value>Nextcloud-Pfad:</value>
+    <value>Nextcloud Pfad</value>
   </data>
   <data name="ShareTargetListView_Header" xml:space="preserve">
     <value>Wählen Sie den Ordner, in den Sie die Dateien hochladen möchten.</value>
@@ -607,5 +607,36 @@ Bitte später noch einmal versuchen.</value>
   </data>
   <data name="PrepareForSharing" xml:space="preserve">
     <value>Das Teilen wird vorbereitet…</value>
+  </data>
+  <data name="AppBarCreateFolder.Label" xml:space="preserve">
+    <value>Ordner erstellen</value>
+  </data>
+  <data name="SyncService_Error_CannotCreateClient" xml:space="preserve">
+    <value>Fehler beim Erstellen eines Klienten für die WebDAV-Kommunikation</value>
+  </data>
+  <data name="SyncService_Error_CreateFolderRemotely" xml:space="preserve">
+    <value>Konnte Verzeichnis {0} nicht auf Nextcloud erstellen.</value>
+    <comment>{0} = the path to be created</comment>
+  </data>
+  <data name="SyncService_Error_DeleteFolderRemotely" xml:space="preserve">
+    <value>Konnte Verzeichnis {0} nicht auf Nextcloud erstellen.</value>
+    <comment>{0} = the path to be deleted</comment>
+  </data>
+  <data name="SyncService_Error_DownloadFile" xml:space="preserve">
+    <value>Fehler beim Herunterladen von {0} von Nextcloud.</value>
+    <comment>{0} = file name</comment>
+  </data>
+  <data name="SyncService_Error_UploadFile" xml:space="preserve">
+    <value>Fehler beim Hochladen der Datei &apos;{0}&apos; zur Nextcloud.</value>
+    <comment>{0} = file name</comment>
+  </data>
+  <data name="DoYouWantToOverwriteIt" xml:space="preserve">
+    <value>Soll überschrieben werden?</value>
+  </data>
+  <data name="FileAlreadyExists" xml:space="preserve">
+    <value>Datei existiert bereits</value>
+  </data>
+  <data name="Overwrite" xml:space="preserve">
+    <value>Überschreiben</value>
   </data>
 </root>
